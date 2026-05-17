@@ -1,0 +1,7 @@
+package util
+
+// 状态。
+const AUCTION_STATE_NORMAL = 0
+const AUCTION_STATE_SUCCESS = 1
+const AUCTION_STATE_FAIL = 2
+const AUCTION_STATE_CANCEL = 3
