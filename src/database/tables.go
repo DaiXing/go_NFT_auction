@@ -8,30 +8,32 @@ import (
 
 // 基本字段
 type BasePo struct {
-	ID        uint64
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt
+	ID        uint64         `json:"id" gorm:"primaryKey"`
+	CreatedAt time.Time      `json:"createdAt"`
+	UpdatedAt time.Time      `json:"updatedAt"`
+	DeletedAt gorm.DeletedAt `json:"-"`
 }
 
 // 拍卖信息。
 type AuctionInfoPo struct {
 	BasePo
-	NftContract string // NFT合约地址
-	TokenId     uint64 // token
-	TokenOwner  string // token owner
-	AuctionId   uint64 // 拍卖ID
-	MinPrice    uint64 // 起拍价。
-	Bidder      string // 当前最高竞拍人
-	BidPrice    uint64 // 当前最高竞拍价格
-	State       int    // 状态。
+	NftContract string `json:"nftContract" gorm:"index"` // NFT合约地址
+	TokenId     uint64 `json:"tokenId" gorm:"index"`     // token
+	TokenOwner  string `json:"tokenOwner" gorm:"index"`  // token owner
+	AuctionId   uint64 `json:"auctionId" gorm:"index"`   // 拍卖ID
+	MinPrice    uint64 `json:"minPrice" `                // 起拍价。
+	BeginTime   uint64 `json:"beginTime"`                // 开始时间
+	PeriodTime  uint64 `json:"periodTime"`               // 持续时间。
+	Bidder      string `json:"bidder"`                   // 当前最高竞拍人
+	BidPrice    uint64 `json:"bidPrice"`                 // 当前最高竞拍价格
+	State       int    `json:"state"`                    // 状态。
 }
 
 // 竞拍信息。 每个人的出价。
 type AuctionBidPo struct {
 	BasePo
-	AuctionId uint64 // 拍卖ID
-	Bidder    string // 竞拍人
-	BidPrice  uint64 // 竞拍价格
-	BidTime   uint64 // 竞拍时间。
+	AuctionId uint64 `json:"auctionId" gorm:"index"` // 拍卖ID
+	Bidder    string `json:"bidder" gorm:"index"`    // 竞拍人
+	BidPrice  uint64 `json:"bidPrice"`               // 竞拍价格
+	BidTime   uint64 `json:"bidTime"`                // 竞拍时间。
 }
