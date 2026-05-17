@@ -35,11 +35,13 @@ type EventAuctionCreate struct {
 //	address indexed to, // 给谁。
 //	uint256 amount // 退款金额
 //
+// uint256 bidId // 竞拍的序号。
 // );
 type EventAuctionRefund struct {
 	AuctionId *big.Int
 	To        common.Address
 	Amount    *big.Int
+	BidId     *big.Int
 }
 
 // 竞拍。
@@ -49,11 +51,13 @@ type EventAuctionRefund struct {
 //	address indexed bidder, // 竞拍人。
 //	uint256 bidPrice // 竞拍金额
 //
+// uint256 bidId // 竞拍的序号。
 // );
 type EventAuctionBid struct {
 	AuctionId *big.Int
 	Bidder    common.Address
 	BidPrice  *big.Int
+	BidId     *big.Int
 }
 
 // 取消。

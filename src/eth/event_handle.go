@@ -34,10 +34,67 @@ func handleEventAuctionCreate(log *types.Log, event *abi.Event, eventx *EventAuc
 
 	logx.AddKV("  插入 AuctionInfoPo", util.ToJson(row))
 }
-func handleEventAuctionRefund(log *types.Log, event *abi.Event, eventx *EventAuctionRefund, logx *util.LogMaker) {
 
+// 退款
+func handleEventAuctionRefund(log *types.Log, event *abi.Event, eventx *EventAuctionRefund, logx *util.LogMaker) {
+	auctionId := eventx.AuctionId.Uint64()
+	bidId := eventx.BidId.Uint64()
+	logx.AddKV("  auctionId", auctionId)
+	logx.AddKV("  bidId    ", bidId)
+
+	// 查询。
+	_, err := database.QueryBidByBidId(bidId)
+	if err != nil {
+		logx.AddKV("  查bid 错误 ", err)
+		return
+	}
+
+	// 更新表。
+	err2 := database.UpdateBid(bidId, map[string]any{
+		"refund_amount": eventx.Amount.Uint64(),
+		"refund_time":   log.BlockTimestamp,
+	})
+
+	if err2 == nil {
+		logx.AddLine(" 更新bid 成功")
+	} else {
+		logx.AddKV(" 更新bid 错误", err2)
+	}
 }
+
+// 竞拍
 func handleEventAuctionBid(log *types.Log, event *abi.Event, eventx *EventAuctionBid, logx *util.LogMaker) {
+	auctionId := eventx.AuctionId.Uint64()
+	bidId := eventx.BidId.Uint64()
+	logx.AddKV("  auctionId", auctionId)
+	logx.AddKV("  bidId    ", bidId)
+
+	// 查询。
+	bidInfo, err := database.QueryBidByBidId(bidId)
+	if err == nil {
+		logx.AddKV("  提示", "bid 已经存在。不写表。"+util.ToJson(&bidInfo))
+		return
+	}
+
+	// 写表。
+	var row database.AuctionBidPo
+	row.AuctionId = auctionId
+	row.BidId = bidId
+	row.Bidder = eventx.Bidder.Hex()
+	row.BidPrice = eventx.BidPrice.Uint64()
+	row.BidTime = log.BlockTimestamp // 时间戳。
+	row.RefundAmount = 0
+	row.RefundTime = 0
+	logx.AddKV(" 准备写row", util.ToJson(&row))
+
+	// 插入。
+	err3 := database.Db.Create(&row).Error
+	if err3 != nil {
+		logx.AddKV(" 写表 错误", err3)
+		return
+	} else {
+		logx.AddLine(" 写表 成功")
+	}
 
 }
 
