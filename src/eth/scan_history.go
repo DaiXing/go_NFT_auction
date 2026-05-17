@@ -52,12 +52,16 @@ func ScanHistoryEvent() {
 
 		// 处理日志。
 		for _, log := range logList {
-			parseEvent(&log)
+			parseOneEvent(&log)
 		}
-	}
 
-	// 更新DB。 往前一个区块，可能只有部分数据。
-	valueNew := strconv.FormatUint(blockNumLast-1, 10)
+		// 更新DB。
+		updateScanBlockNum(end)
+	}
+}
+
+// 更新，已经扫描的block
+func updateScanBlockNum(blockNum uint64) {
+	valueNew := strconv.FormatUint(blockNum, 10)
 	database.UpdateKeyValue(util.KEY_SCAN_BLOCK_NUM, valueNew)
-	logx.AddKV("  更新已经处理的blockNum", valueNew)
 }

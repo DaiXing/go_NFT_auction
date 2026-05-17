@@ -34,14 +34,17 @@ func SubscribeEvent() {
 
 				return
 			case logE := <-chanEvent: // 解析日志
-				parseEvent(&logE) // 处理日志。
+
+				parseOneEvent(&logE) // 处理日志。
+
+				updateScanBlockNum(logE.BlockNumber) // 更新DB。
 			}
 		}
 	}()
 }
 
 // 解析log
-func parseEvent(log *types.Log) {
+func parseOneEvent(log *types.Log) {
 	logx := util.LogMaker{}
 	logx.AddLine(">> 解析一个event ")
 	defer logx.LogString()
