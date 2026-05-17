@@ -28,11 +28,14 @@ func handleEventAuctionCreate(log *types.Log, event *abi.Event, eventx *EventAuc
 	row.Bidder = ""
 	row.BidPrice = 0
 	row.State = util.AUCTION_STATE_NORMAL // 进行中。
+	logx.AddKV("  插入 AuctionInfoPo", util.ToJson(&row))
 
 	err := database.Db.Create(&row).Error
-	util.CheckError(err)
-
-	logx.AddKV("  插入 AuctionInfoPo", util.ToJson(row))
+	if err == nil {
+		logx.AddLine("  插入表 成功")
+	} else {
+		logx.AddKV("  插入表 错误", err)
+	}
 }
 
 // 退款
@@ -90,12 +93,22 @@ func handleEventAuctionBid(log *types.Log, event *abi.Event, eventx *EventAuctio
 	// 插入。
 	err3 := database.Db.Create(&row).Error
 	if err3 != nil {
-		logx.AddKV(" 写表 错误", err3)
+		logx.AddKV(" 写bid 错误", err3)
 		return
 	} else {
-		logx.AddLine(" 写表 成功")
+		logx.AddLine(" 写bid 成功")
 	}
 
+	// 更新 auction
+	err4 := database.UpdateAuction(auctionId, map[string]any{
+		"bidder":    eventx.Bidder.Hex(),
+		"bid_price": eventx.BidPrice.Uint64(),
+	})
+	if err4 == nil {
+		logx.AddLine(" 更新auction 成功")
+	} else {
+		logx.AddKV(" 更新auction 错误", err4)
+	}
 }
 
 // 取消。
