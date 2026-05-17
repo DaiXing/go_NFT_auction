@@ -2,6 +2,7 @@ package util
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"strings"
 	"time"
@@ -41,5 +42,12 @@ func (tt *LogMaker) LogString() string {
 	}
 	str := buf.String()
 	Logger.Info(str)
+	return str
+}
+
+func ToJson(obj any) string {
+	bytex, err := json.Marshal(obj)
+	CheckError(err)
+	str := string(bytex)
 	return str
 }

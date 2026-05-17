@@ -32,9 +32,9 @@ type AuctionInfoPo struct {
 // 竞拍信息。 每个人的出价。
 type AuctionBidPo struct {
 	BasePo
-	LogHash   string `json:"logHash" gorm:"uniqueIndex;size:100"` // 日志hash
-	AuctionId uint64 `json:"auctionId" gorm:"index"`              // 拍卖ID
-	Bidder    string `json:"bidder" gorm:"index;size:100"`        // 竞拍人
-	BidPrice  uint64 `json:"bidPrice"`                            // 竞拍价格
-	BidTime   uint64 `json:"bidTime"`                             // 竞拍时间。
+	LogKey    string `json:"logKey" gorm:"uniqueIndex;size:100"` // 日志的唯一标识。
+	AuctionId uint64 `json:"auctionId" gorm:"index"`             // 拍卖ID
+	Bidder    string `json:"bidder" gorm:"index;size:100"`       // 竞拍人
+	BidPrice  uint64 `json:"bidPrice"`                           // 竞拍价格
+	BidTime   uint64 `json:"bidTime"`                            // 竞拍时间。
 }

@@ -37,12 +37,18 @@ func SubscribeEvent() {
 
 // 解析log
 func parseEvent(log *types.Log) {
+	logx := util.LogMaker{}
+	logx.AddLine(">> 解析一个event ")
+	defer logx.LogString()
+
 	// 找出具体的事件定义
 	topic0 := log.Topics[0]
+	logx.AddKV("  topic0", topic0)
 	event, err1 := abiObj.EventByID(topic0)
 	util.CheckError(err1)
 
 	eventName := event.Name
+	logx.AddKV("  eventName", eventName)
 
 	// 区分事件
 	if "AuctionCreate" == eventName {
@@ -55,8 +61,10 @@ func parseEvent(log *types.Log) {
 		eventx.TokenId = big.NewInt(0).SetBytes(log.Topics[2].Bytes())
 		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[3].Bytes())
 
+		logx.AddKV("  event明细", util.ToJson(eventx))
+
 		// 处理事件。
-		handleEventAuctionCreate(log, event, &eventx)
+		handleEventAuctionCreate(log, event, &eventx, &logx)
 	} else if "AuctionRefund" == eventName {
 		// 解析事件。
 		var eventx EventAuctionRefund
@@ -66,8 +74,10 @@ func parseEvent(log *types.Log) {
 		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())
 		eventx.To = common.BytesToAddress(log.Topics[2].Bytes())
 
+		logx.AddKV("  event明细", util.ToJson(eventx))
+
 		// 处理事件。
-		handleEventAuctionRefund(log, event, &eventx)
+		handleEventAuctionRefund(log, event, &eventx, &logx)
 	} else if "AuctionBid" == eventName {
 		// 解析事件。
 		var eventx EventAuctionBid
@@ -77,8 +87,10 @@ func parseEvent(log *types.Log) {
 		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())
 		eventx.Bidder = common.BytesToAddress(log.Topics[2].Bytes())
 
+		logx.AddKV("  event明细", util.ToJson(eventx))
+
 		// 处理事件。
-		handleEventAuctionBid(log, event, &eventx)
+		handleEventAuctionBid(log, event, &eventx, &logx)
 	} else if "AuctionCancel" == eventName {
 		// 解析事件。
 		var eventx EventAuctionCancel
@@ -87,8 +99,10 @@ func parseEvent(log *types.Log) {
 
 		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())
 
+		logx.AddKV("  event明细", util.ToJson(eventx))
+
 		// 处理事件。
-		handleEventAuctionCancel(log, event, &eventx)
+		handleEventAuctionCancel(log, event, &eventx, &logx)
 	} else if "AuctionEnd" == eventName {
 		// 解析事件。
 		var eventx EventAuctionEnd
@@ -97,10 +111,12 @@ func parseEvent(log *types.Log) {
 
 		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())
 
+		logx.AddKV("  event明细", util.ToJson(eventx))
+
 		// 处理事件。
-		handleEventAuctionEnd(log, event, &eventx)
+		handleEventAuctionEnd(log, event, &eventx, &logx)
 	} else {
 		// 未知事件。
+		logx.AddKV("  错误", "未知的event类型")
 	}
-
 }
