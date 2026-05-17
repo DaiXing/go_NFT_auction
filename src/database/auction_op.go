@@ -15,3 +15,16 @@ func ExistsAuctionId(auctionId uint64) bool {
 	}
 	return false
 }
+
+// 更新DB
+func UpdateAuction(auctionId uint64, updateFields map[string]any) error {
+	auction, err := QueryActionInfoByAuctionId(auctionId)
+	if err == nil {
+		// 用ID更新。
+		err2 := Db.Model(&AuctionInfoPo{}).
+			Where("id = ?", auction.ID).
+			UpdateColumns(updateFields).Error
+		return err2
+	}
+	return err
+}

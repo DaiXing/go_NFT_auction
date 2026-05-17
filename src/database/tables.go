@@ -26,7 +26,7 @@ type AuctionInfoPo struct {
 	PeriodTime  uint64 `json:"periodTime"`                        // 持续时间。
 	Bidder      string `json:"bidder" gorm:"size:100"`            // 当前最高竞拍人
 	BidPrice    uint64 `json:"bidPrice"`                          // 当前最高竞拍价格
-	State       int    `json:"state"`                             // 状态。
+	State       uint8  `json:"state"`                             // 状态。
 }
 
 // 竞拍信息。 每个人的出价。

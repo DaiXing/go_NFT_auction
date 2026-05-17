@@ -40,9 +40,43 @@ func handleEventAuctionRefund(log *types.Log, event *abi.Event, eventx *EventAuc
 func handleEventAuctionBid(log *types.Log, event *abi.Event, eventx *EventAuctionBid, logx *util.LogMaker) {
 
 }
+
+// 取消。
 func handleEventAuctionCancel(log *types.Log, event *abi.Event, eventx *EventAuctionCancel, logx *util.LogMaker) {
+	auctionId := eventx.AuctionId.Uint64()
+	logx.AddKV("  auctionId", auctionId)
 
+	auction, err := database.QueryActionInfoByAuctionId(auctionId)
+	if err == nil {
+		// 判断状态。
+		if auction.State == util.AUCTION_STATE_NORMAL {
+			err2 := database.UpdateAuction(auctionId, map[string]any{
+				"state": util.AUCTION_STATE_CANCEL,
+			})
+			if err2 == nil {
+				logx.AddKV(" 提示", "更新表 成功")
+			} else {
+				logx.AddKV(" 更新表 错误", err2)
+			}
+		} else {
+			logx.AddKV(" 提示", "状态不是进行中。无法取消。")
+		}
+	} else {
+		logx.AddKV(" 查表 错误", err)
+	}
 }
-func handleEventAuctionEnd(log *types.Log, event *abi.Event, eventx *EventAuctionEnd, logx *util.LogMaker) {
 
+// 结束。
+func handleEventAuctionEnd(log *types.Log, event *abi.Event, eventx *EventAuctionEnd, logx *util.LogMaker) {
+	auctionId := eventx.AuctionId.Uint64()
+	logx.AddKV("  auctionId", auctionId)
+
+	err := database.UpdateAuction(auctionId, map[string]any{
+		"state": eventx.State,
+	})
+	if err == nil {
+		logx.AddKV(" 提示", "更新 auction表成功。")
+	} else {
+		logx.AddKV(" 更新报错", err)
+	}
 }
