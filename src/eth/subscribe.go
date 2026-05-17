@@ -58,19 +58,49 @@ func parseEvent(log *types.Log) {
 		// 处理事件。
 		handleEventAuctionCreate(log, event, &eventx)
 	} else if "AuctionRefund" == eventName {
+		// 解析事件。
 		var eventx EventAuctionRefund
 		err2 := abiObj.UnpackIntoInterface(&eventx, eventName, log.Data)
 		util.CheckError(err2)
 
+		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())
+		eventx.To = common.BytesToAddress(log.Topics[2].Bytes())
+
+		// 处理事件。
+		handleEventAuctionRefund(log, event, &eventx)
 	} else if "AuctionBid" == eventName {
+		// 解析事件。
 		var eventx EventAuctionBid
 		err2 := abiObj.UnpackIntoInterface(&eventx, eventName, log.Data)
 		util.CheckError(err2)
 
+		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())
+		eventx.Bidder = common.BytesToAddress(log.Topics[2].Bytes())
+
+		// 处理事件。
+		handleEventAuctionBid(log, event, &eventx)
 	} else if "AuctionCancel" == eventName {
+		// 解析事件。
 		var eventx EventAuctionCancel
 		err2 := abiObj.UnpackIntoInterface(&eventx, eventName, log.Data)
 		util.CheckError(err2)
+
+		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())
+
+		// 处理事件。
+		handleEventAuctionCancel(log, event, &eventx)
+	} else if "AuctionEnd" == eventName {
+		// 解析事件。
+		var eventx EventAuctionEnd
+		err2 := abiObj.UnpackIntoInterface(&eventx, eventName, log.Data)
+		util.CheckError(err2)
+
+		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())
+
+		// 处理事件。
+		handleEventAuctionEnd(log, event, &eventx)
+	} else {
+		// 未知事件。
 	}
 
 }

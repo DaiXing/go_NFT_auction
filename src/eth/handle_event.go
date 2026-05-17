@@ -9,3 +9,15 @@ import (
 func handleEventAuctionCreate(log *types.Log, event *abi.Event, eventx *EventAuctionCreate) {
 
 }
+func handleEventAuctionRefund(log *types.Log, event *abi.Event, eventx *EventAuctionRefund) {
+
+}
+func handleEventAuctionBid(log *types.Log, event *abi.Event, eventx *EventAuctionBid) {
+
+}
+func handleEventAuctionCancel(log *types.Log, event *abi.Event, eventx *EventAuctionCancel) {
+
+}
+func handleEventAuctionEnd(log *types.Log, event *abi.Event, eventx *EventAuctionEnd) {
+
+}
