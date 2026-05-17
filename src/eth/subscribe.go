@@ -18,18 +18,23 @@ func SubscribeEvent() {
 	query := ethereum.FilterQuery{
 		Addresses: []common.Address{contractAddr},
 	}
-	chanEvent := make(chan types.Log)
-	sub, err2 := Client.SubscribeFilterLogs(ctx, query, chanEvent)
+	chanEvent := make(chan types.Log) // 队列。
+	sub, err2 := EthClientWS.SubscribeFilterLogs(ctx, query, chanEvent)
 	util.CheckError(err2)
 
 	go func() {
 		for {
 			select {
 			case <-sub.Err():
-				util.Logger.Error("订阅事件发生错误", "err", sub.Err())
+				util.Logger.Error("订阅事件 发生错误", "err", sub.Err())
+
+				sub.Unsubscribe() // 取消订阅。
+
+				SubscribeEvent() // 重新订阅。
+
 				return
 			case logE := <-chanEvent: // 解析日志
-				parseEvent(logE)
+				parseEvent(&logE) // 处理日志。
 			}
 		}
 	}()
@@ -40,6 +45,11 @@ func parseEvent(log *types.Log) {
 	logx := util.LogMaker{}
 	logx.AddLine(">> 解析一个event ")
 	defer logx.LogString()
+
+	defer func() {
+		err := recover() // 捕获解析事件的panic，避免程序崩溃。
+		logx.AddKV(" 异常", err)
+	}()
 
 	// 找出具体的事件定义
 	topic0 := log.Topics[0]

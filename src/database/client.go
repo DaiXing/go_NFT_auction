@@ -26,14 +26,19 @@ func InitClient() {
 
 // 初始化表。
 func InitTables() {
+	// 表。
+	tableList := []any{
+		&AuctionInfoPo{}, &AuctionBidPo{}, &KeyValuePo{},
+	}
+
 	// 丢弃表。
 	if util.ConfigParams.Datasource.NeedDropTables {
-		err := Db.Migrator().DropTable(&AuctionInfoPo{}, &AuctionBidPo{})
+		err := Db.Migrator().DropTable(tableList)
 		util.CheckError(err)
 	}
 
 	// 自动迁移。
-	err := Db.AutoMigrate(&AuctionInfoPo{}, &AuctionBidPo{})
+	err := Db.AutoMigrate(tableList)
 	util.CheckError(err)
 
 	// 查表。

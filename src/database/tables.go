@@ -40,3 +40,10 @@ type AuctionBidPo struct {
 	RefundAmount uint64 `json:"refundAmount"`                 // 退款金额。 只有被超越的竞拍才有退款金额。
 	RefundTime   uint64 `json:"refundTime"`                   // 退款的时间。
 }
+
+// KV 数据。
+type KeyValuePo struct {
+	BasePo
+	ParamKey   string `json:"paramKey" gorm:"uniqueIndex;size:200"` // 键。唯一。
+	ParamValue string `json:"paramValue" gorm:"size:2000"`          // 值。
+}
