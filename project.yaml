@@ -6,5 +6,16 @@ datasource:
 
 eth: 
   rpcUrl: "http://127.0.0.1:8545"
+  auctionContractAddress: "0x1234567890abcdef1234567890abcdef12345678"
+
+
+
+
+
+
+
+
+
+
 
 

@@ -17,23 +17,24 @@ type BasePo struct {
 // 拍卖信息。
 type AuctionInfoPo struct {
 	BasePo
-	NftContract string `json:"nftContract" gorm:"index"` // NFT合约地址
-	TokenId     uint64 `json:"tokenId" gorm:"index"`     // token
-	TokenOwner  string `json:"tokenOwner" gorm:"index"`  // token owner
-	AuctionId   uint64 `json:"auctionId" gorm:"index"`   // 拍卖ID
-	MinPrice    uint64 `json:"minPrice" `                // 起拍价。
-	BeginTime   uint64 `json:"beginTime"`                // 开始时间
-	PeriodTime  uint64 `json:"periodTime"`               // 持续时间。
-	Bidder      string `json:"bidder"`                   // 当前最高竞拍人
-	BidPrice    uint64 `json:"bidPrice"`                 // 当前最高竞拍价格
-	State       int    `json:"state"`                    // 状态。
+	NftContract string `json:"nftContract" gorm:"index;size:100"` // NFT合约地址
+	TokenId     uint64 `json:"tokenId" gorm:"index"`              // token
+	TokenOwner  string `json:"tokenOwner" gorm:"index;size:100"`  // token owner
+	AuctionId   uint64 `json:"auctionId" gorm:"index"`            // 拍卖ID
+	MinPrice    uint64 `json:"minPrice" `                         // 起拍价。
+	BeginTime   uint64 `json:"beginTime"`                         // 开始时间
+	PeriodTime  uint64 `json:"periodTime"`                        // 持续时间。
+	Bidder      string `json:"bidder" gorm:"size:100"`            // 当前最高竞拍人
+	BidPrice    uint64 `json:"bidPrice"`                          // 当前最高竞拍价格
+	State       int    `json:"state"`                             // 状态。
 }
 
 // 竞拍信息。 每个人的出价。
 type AuctionBidPo struct {
 	BasePo
-	AuctionId uint64 `json:"auctionId" gorm:"index"` // 拍卖ID
-	Bidder    string `json:"bidder" gorm:"index"`    // 竞拍人
-	BidPrice  uint64 `json:"bidPrice"`               // 竞拍价格
-	BidTime   uint64 `json:"bidTime"`                // 竞拍时间。
+	LogHash   string `json:"logHash" gorm:"uniqueIndex;size:100"` // 日志hash
+	AuctionId uint64 `json:"auctionId" gorm:"index"`              // 拍卖ID
+	Bidder    string `json:"bidder" gorm:"index;size:100"`        // 竞拍人
+	BidPrice  uint64 `json:"bidPrice"`                            // 竞拍价格
+	BidTime   uint64 `json:"bidTime"`                             // 竞拍时间。
 }

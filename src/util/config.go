@@ -38,5 +38,6 @@ type DbParamInfo struct {
 
 // eth
 type EthParamInfo struct {
-	RpcUrl string `mapstructure:"rpcUrl"`
+	RpcUrl                 string `mapstructure:"rpcUrl"`
+	AuctionContractAddress string `mapstructure:"auctionContractAddress"`
 }
