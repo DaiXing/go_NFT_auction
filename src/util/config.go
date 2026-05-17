@@ -26,9 +26,17 @@ func InitViper() {
 
 // 配置的参数。
 type ConfigParamInfo struct {
-	Datasource DbParamInfo `mapstructure:"datasource"`
+	Datasource DbParamInfo  `mapstructure:"datasource"`
+	Eth        EthParamInfo `mapstructure:"eth"`
 }
+
+// 数据库
 type DbParamInfo struct {
 	MysqlUrl       string `mapstructure:"mysqlUrl"`
 	NeedDropTables bool   `mapstructure:"needDropTables"`
+}
+
+// eth
+type EthParamInfo struct {
+	RpcUrl string `mapstructure:"rpcUrl"`
 }
