@@ -25,6 +25,9 @@ func InitWeb() {
 func setupPath() {
 	webServer.Use(aopLogRequest) // 打日志。
 
+	// 健康检测
+	webServer.GET("/health", handleHealth)
+
 	// 代币
 	group1 := webServer.Group("/token")
 	group1.POST("/get-token-list", handleGetTokenList)

@@ -1,10 +1,20 @@
 package web
 
 import (
+	"time"
+
 	"github.com/gin-gonic/gin"
 	"my.nft.auction/src/database"
 	"my.nft.auction/src/util"
 )
+
+// 健康检测。
+func handleHealth(ctx *gin.Context) {
+	resp := BaseResp{
+		Message: "NFT auction : " + time.Now().Format(time.DateTime),
+	}
+	webReturnOKJson(ctx, resp)
+}
 
 // 查询 token列表。
 func handleGetTokenList(ctx *gin.Context) {
