@@ -9,7 +9,7 @@ import (
 )
 
 // 健康检测。
-func handleHealth(ctx *gin.Context) {
+func pathHealth(ctx *gin.Context) {
 	resp := BaseResp{
 		Message: "NFT auction : " + time.Now().Format(time.DateTime),
 	}
@@ -17,7 +17,7 @@ func handleHealth(ctx *gin.Context) {
 }
 
 // 查询 token列表。
-func handleGetTokenList(ctx *gin.Context) {
+func pathGetTokenList(ctx *gin.Context) {
 	// 参数。
 	var req GetTokenListReq
 	err := ctx.ShouldBindJSON(&req)
@@ -29,7 +29,7 @@ func handleGetTokenList(ctx *gin.Context) {
 }
 
 // 查询 拍卖列表。
-func handleGetAuctionList(ctx *gin.Context) {
+func pathGetAuctionList(ctx *gin.Context) {
 	// 参数。
 	var req GetAuctionListReq
 	err := ctx.ShouldBindJSON(&req)
@@ -73,7 +73,7 @@ func handleGetAuctionList(ctx *gin.Context) {
 }
 
 // 查询 出价列表。
-func handleGetBidList(ctx *gin.Context) {
+func pathGetBidList(ctx *gin.Context) {
 	// 参数。
 	var req GetBidListReq
 	err := ctx.ShouldBindJSON(&req)
@@ -107,4 +107,26 @@ func handleGetBidList(ctx *gin.Context) {
 	resp.TotalSize = count
 	resp.BidList = bids
 	webReturnOKJson(ctx, &resp)
+}
+
+// 统计。
+func pathStatistic(ctx *gin.Context) {
+	var resp StatisticResp
+
+	// 拍卖总数
+	err1 := database.Db.Model(&database.AuctionInfoPo{}).Count(&resp.CountAuction).Error
+	util.CheckError(err1)
+
+	// 出价总数
+	err2 := database.Db.Model(&database.AuctionBidPo{}).Count(&resp.CountBid).Error
+	util.CheckError(err2)
+
+	// 总锁仓价值
+	var sumBidPrice int64
+	err3 := database.Db.Model(&database.AuctionBidPo{}).Select("sum(bid_price)").Scan(&sumBidPrice).Error
+	util.CheckError(err3)
+
+	resp.SumTvl += sumBidPrice
+
+	webReturnOKJson(ctx, resp)
 }

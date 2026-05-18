@@ -61,3 +61,11 @@ type GetBidListResp struct {
 	BaseResp
 	BidList []database.AuctionBidPo `json:"bidList"` // 出价列表。
 }
+
+// 统计。
+type StatisticResp struct {
+	BaseResp
+	CountAuction int64 `json:"countAuction"` // 拍卖总数
+	CountBid     int64 `json:"countBid"`     // 出价总数
+	SumTvl       int64 `json:"sumTvl"`       // 总锁仓价值
+}
