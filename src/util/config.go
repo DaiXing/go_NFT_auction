@@ -47,4 +47,5 @@ type EthParamInfo struct {
 type WebParamInfo struct {
 	JwtKey           string `mapstructure:"jwtKey"`
 	TokenValidMiutes uint64 `mapstructure:"tokenValidMiutes"`
+	Port             uint32 `mapstructure:"port"`
 }
