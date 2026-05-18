@@ -1,12 +1,23 @@
 
-
+# 数据源
 datasource: 
   mysqlUrl: "user:password@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
   needDropTables: true 
 
+# 以太坊相关配置
 eth: 
   rpcUrl: "http://127.0.0.1:8545"
   auctionContractAddress: "0x1234567890abcdef1234567890abcdef12345678"
+
+# web配置
+web:  
+  jwtKey: "OP82fHG98FQQ"
+  tokenValidMiutes: 60 
+
+# 测试的配置
+test: 
+  # NFT合约地址
+  nftContractAddr: 0xabcdef1234567890abcdef1234567890abcdef12
 
 
 

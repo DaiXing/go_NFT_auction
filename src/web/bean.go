@@ -1,6 +1,16 @@
 package web
 
-import "my.nft.auction/src/database"
+import (
+	"github.com/golang-jwt/jwt/v5"
+	"my.nft.auction/src/database"
+)
+
+// token
+type JwtTokenInfo struct {
+	jwt.RegisteredClaims        // 继承。
+	UserId               uint64 `json:"userId"`
+	Username             string `json:"username"`
+}
 
 // 父类。
 type BaseReq struct {

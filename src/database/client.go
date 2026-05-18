@@ -13,7 +13,7 @@ var Db *gorm.DB
 
 func InitClient() {
 	// 连接。
-	url := util.ConfigParams.Datasource.MysqlUrl
+	url := util.Params.Datasource.MysqlUrl
 	db, err := gorm.Open(mysql.Open(url), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info), // 可选：设置日志级别
 	})
@@ -32,7 +32,7 @@ func InitTables() {
 	}
 
 	// 丢弃表。
-	if util.ConfigParams.Datasource.NeedDropTables {
+	if util.Params.Datasource.NeedDropTables {
 		err := Db.Migrator().DropTable(tableList)
 		util.CheckError(err)
 	}

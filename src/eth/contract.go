@@ -18,7 +18,7 @@ var abiObj *abi.ABI
 var contractAddr common.Address
 
 func InitContract() {
-	addrHex := util.ConfigParams.Eth.AuctionContractAddress
+	addrHex := util.Params.Eth.AuctionContractAddress
 	contractAddr = common.HexToAddress(addrHex)
 
 	filename := "contract_abi.json"

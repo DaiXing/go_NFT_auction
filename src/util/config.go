@@ -3,7 +3,7 @@ package util
 import "github.com/spf13/viper"
 
 // 配置项。
-var ConfigParams ConfigParamInfo
+var Params ConfigParamInfo
 
 // 初始化。
 func InitViper() {
@@ -18,7 +18,7 @@ func InitViper() {
 	}
 
 	// 结构化。
-	err2 := viper.Unmarshal(&ConfigParams)
+	err2 := viper.Unmarshal(&Params)
 	if err2 != nil {
 		panic(err2)
 	}
@@ -28,6 +28,7 @@ func InitViper() {
 type ConfigParamInfo struct {
 	Datasource DbParamInfo  `mapstructure:"datasource"`
 	Eth        EthParamInfo `mapstructure:"eth"`
+	Web        WebParamInfo `mapstructure:"web"`
 }
 
 // 数据库
@@ -40,4 +41,10 @@ type DbParamInfo struct {
 type EthParamInfo struct {
 	RpcUrl                 string `mapstructure:"rpcUrl"`
 	AuctionContractAddress string `mapstructure:"auctionContractAddress"`
+}
+
+// web配置
+type WebParamInfo struct {
+	JwtKey           string `mapstructure:"jwtKey"`
+	TokenValidMiutes uint64 `mapstructure:"tokenValidMiutes"`
 }

@@ -17,7 +17,7 @@ func InitClient() {
 	defer cancel()
 
 	// URL
-	url := util.ConfigParams.Eth.RpcUrl
+	url := util.Params.Eth.RpcUrl
 	urlWs := strings.Replace(url, "http", "ws", 1)
 
 	// 连接。
