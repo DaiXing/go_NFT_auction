@@ -70,7 +70,7 @@ func parseOneEvent(log *types.Log) {
 		err2 := abiObj.UnpackIntoInterface(&eventx, eventName, log.Data)
 		util.CheckError(err2)
 
-		eventx.NftContract = common.BytesToAddress(log.Topics[1].Bytes())
+		eventx.Seller = common.BytesToAddress(log.Topics[1].Bytes())
 		eventx.TokenId = big.NewInt(0).SetBytes(log.Topics[2].Bytes())
 		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[3].Bytes())
 

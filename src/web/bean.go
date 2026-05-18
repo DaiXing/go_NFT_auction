@@ -27,7 +27,7 @@ type BaseResp struct {
 // 查询 token列表。
 type GetTokenListReq struct {
 	BaseReq
-	TokenOwner string `json:"tokenOwner" ` // token owner
+	Seller string `json:"seller" ` // 卖家。
 }
 type TokenInfo struct {
 	NftContract string `json:"nftContract"  ` // NFT合约地址
@@ -44,7 +44,7 @@ type GetAuctionListReq struct {
 	BaseReq
 	NftContract string `json:"nftContract"  ` // NFT合约地址
 	TokenId     uint64 `json:"tokenId"  `     // token
-	TokenOwner  string `json:"tokenOwner" `   // token owner
+	Seller      string `json:"seller" `       // 卖家
 	AuctionId   uint64 `json:"auctionId" `    // 拍卖ID。唯一。
 }
 type GetAuctionListResp struct {

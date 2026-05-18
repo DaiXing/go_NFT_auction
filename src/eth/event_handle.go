@@ -20,7 +20,7 @@ func handleEventAuctionCreate(log *types.Log, event *abi.Event, eventx *EventAuc
 	var row database.AuctionInfoPo
 	row.NftContract = eventx.NftContract.Hex()
 	row.TokenId = eventx.TokenId.Uint64()
-	row.TokenOwner = eventx.TokenOwner.Hex()
+	row.Seller = eventx.Seller.Hex()
 	row.AuctionId = eventx.AuctionId.Uint64()
 	row.MinPrice = eventx.MinPrice.Uint64()
 	row.BeginTime = eventx.BeginTime.Uint64()

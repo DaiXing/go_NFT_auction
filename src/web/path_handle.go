@@ -43,8 +43,8 @@ func pathGetAuctionList(ctx *gin.Context) {
 	if req.TokenId > 0 {
 		tx = tx.Where("token_id = ?", req.TokenId)
 	}
-	if len(req.TokenOwner) > 0 {
-		tx = tx.Where("token_owner = ?", req.TokenOwner)
+	if len(req.Seller) > 0 {
+		tx = tx.Where("seller = ?", req.Seller)
 	}
 	if req.AuctionId > 0 {
 		tx = tx.Where("auction_id = ?", req.AuctionId)

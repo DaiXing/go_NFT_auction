@@ -19,7 +19,7 @@ type AuctionInfoPo struct {
 	BasePo
 	NftContract string `json:"nftContract" gorm:"index;size:100"` // NFT合约地址
 	TokenId     uint64 `json:"tokenId" gorm:"index"`              // token
-	TokenOwner  string `json:"tokenOwner" gorm:"index;size:100"`  // token owner
+	Seller      string `json:"seller" gorm:"index;size:100"`      // 卖家
 	AuctionId   uint64 `json:"auctionId" gorm:"uniqueIndex"`      // 拍卖ID。唯一。
 	MinPrice    uint64 `json:"minPrice" `                         // 起拍价。
 	BeginTime   uint64 `json:"beginTime"`                         // 开始时间
