@@ -5,6 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"my.nft.auction/src/database"
+	"my.nft.auction/src/eth"
 	"my.nft.auction/src/util"
 )
 
@@ -22,6 +23,10 @@ func pathGetTokenList(ctx *gin.Context) {
 	var req GetTokenListReq
 	err := ctx.ShouldBindJSON(&req)
 	util.CheckError(err)
+
+	// 查 NFT
+	nftResp, err2 := eth.AlchemyQueryNft(req.Seller, req.PageSize, true)
+	util.CheckError(err2)
 
 	// 返回。
 	var resp GetTokenListResp

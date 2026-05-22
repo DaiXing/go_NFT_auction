@@ -30,9 +30,15 @@ type GetTokenListReq struct {
 	Seller string `json:"seller" ` // 卖家。
 }
 type TokenInfo struct {
-	NftContract string `json:"nftContract"  ` // NFT合约地址
-	TokenId     uint64 `json:"tokenId"  `     // token
-	TokenUri    string `json:"tokenUri"  `    // token uri
+	NftContract string  `json:"nftContract"  ` // NFT合约地址
+	TokenId     uint64  `json:"tokenId"  `     // token
+	TokenUri    string  `json:"tokenUri"  `    // token uri
+	TokenType   string  `json:"tokenType"`
+	FloorPrice  float32 `json:"floorPrice"` // 地板价
+	Description string  `json:"description"`
+	Image1      string  `json:"image1"`
+	Image2      string  `json:"image2"`
+	Image3      string  `json:"image3"`
 }
 type GetTokenListResp struct {
 	BaseResp

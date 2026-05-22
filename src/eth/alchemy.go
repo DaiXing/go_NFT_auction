@@ -33,10 +33,11 @@ func AlchemyQueryNft(owner string, pageSize int, needMeta bool) (*AxNftResp, err
 }
 
 type AxContract struct {
-	Name      string `json:"name"`
-	Address   string `json:"address"`
-	Symbol    string `json:"symbol"`
-	TokenType string `json:"tokenType"`
+	Name            string      `json:"name"`
+	Address         string      `json:"address"`
+	Symbol          string      `json:"symbol"`
+	TokenType       string      `json:"tokenType"`
+	OpenSeaMetadata AxTokenMeta `json:"openSeaMetadata"`
 }
 type AxToken struct {
 	TokenId     string       `json:"tokenId"`
@@ -56,4 +57,8 @@ type AxNftResp struct {
 	OwnedNfts  []AxToken `json:"ownedNfts"`
 	TotalCount int32     `json:"totalCount"`
 	// PageKey    string    `json:"pageKey"`
+}
+type AxTokenMeta struct {
+	FloorPrice float32 `json:"floorPrice"`
+	ImageUrl   string  `json:"imageUrl"`
 }
