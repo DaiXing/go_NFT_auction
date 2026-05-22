@@ -30,6 +30,28 @@ func pathGetTokenList(ctx *gin.Context) {
 
 	// 返回。
 	var resp GetTokenListResp
+
+	// token
+	for _, token := range nftResp.OwnedNfts {
+		tokenInfo := TokenInfo{
+			NftContract: token.Contract.Address,
+			TokenId:     token.TokenId,
+			TokenUri:    token.TokenUri,
+			TokenType:   token.TokenType,
+			FloorPrice:  token.Contract.OpenSeaMetadata.FloorPrice,
+			Description: token.Description,
+			Image1:      token.Image.CachedUrl,
+			Image2:      token.Image.PngUrl,
+			Image3:      token.Image.ThumbnailUrl,
+		}
+
+		// 查拍卖。
+		auctionInfo, _ := database.QueryActionInfoBySeller(req.Seller, tokenInfo.NftContract, tokenInfo.TokenId)
+		tokenInfo.AuctionInfo = auctionInfo
+
+		resp.TokenList = append(resp.TokenList, &tokenInfo)
+	}
+
 	webReturnOKJson(ctx, &resp)
 }
 
@@ -45,7 +67,7 @@ func pathGetAuctionList(ctx *gin.Context) {
 	if len(req.NftContract) > 0 {
 		tx = tx.Where("nft_contract = ?", req.NftContract)
 	}
-	if req.TokenId > 0 {
+	if len(req.TokenId) > 0 {
 		tx = tx.Where("token_id = ?", req.TokenId)
 	}
 	if len(req.Seller) > 0 {

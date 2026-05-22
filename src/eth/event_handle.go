@@ -10,7 +10,7 @@ import (
 // 处理事件。
 func handleEventAuctionCreate(log *types.Log, event *abi.Event, eventx *EventAuctionCreate, logx *util.LogMaker) {
 	// 去重。
-	auctionId := eventx.AuctionId.Uint64()
+	auctionId := eventx.AuctionId.String()
 	logx.AddKV("  auctionId", auctionId)
 	if database.ExistsAuctionId(auctionId) {
 		logx.AddKV("  提示", "auction已经在DB。不再写入。")
@@ -19,9 +19,9 @@ func handleEventAuctionCreate(log *types.Log, event *abi.Event, eventx *EventAuc
 
 	var row database.AuctionInfoPo
 	row.NftContract = eventx.NftContract.Hex()
-	row.TokenId = eventx.TokenId.Uint64()
+	row.TokenId = eventx.TokenId.String()
 	row.Seller = eventx.Seller.Hex()
-	row.AuctionId = eventx.AuctionId.Uint64()
+	row.AuctionId = auctionId
 	row.MinPrice = eventx.MinPrice.Uint64()
 	row.BeginTime = eventx.BeginTime.Uint64()
 	row.PeriodTime = eventx.EndTime.Uint64() - eventx.BeginTime.Uint64()
@@ -40,8 +40,8 @@ func handleEventAuctionCreate(log *types.Log, event *abi.Event, eventx *EventAuc
 
 // 退款
 func handleEventAuctionRefund(log *types.Log, event *abi.Event, eventx *EventAuctionRefund, logx *util.LogMaker) {
-	auctionId := eventx.AuctionId.Uint64()
-	bidId := eventx.BidId.Uint64()
+	auctionId := eventx.AuctionId.String()
+	bidId := eventx.BidId.String()
 	logx.AddKV("  auctionId", auctionId)
 	logx.AddKV("  bidId    ", bidId)
 
@@ -67,8 +67,8 @@ func handleEventAuctionRefund(log *types.Log, event *abi.Event, eventx *EventAuc
 
 // 竞拍
 func handleEventAuctionBid(log *types.Log, event *abi.Event, eventx *EventAuctionBid, logx *util.LogMaker) {
-	auctionId := eventx.AuctionId.Uint64()
-	bidId := eventx.BidId.Uint64()
+	auctionId := eventx.AuctionId.String()
+	bidId := eventx.BidId.String()
 	logx.AddKV("  auctionId", auctionId)
 	logx.AddKV("  bidId    ", bidId)
 
@@ -113,7 +113,7 @@ func handleEventAuctionBid(log *types.Log, event *abi.Event, eventx *EventAuctio
 
 // 取消。
 func handleEventAuctionCancel(log *types.Log, event *abi.Event, eventx *EventAuctionCancel, logx *util.LogMaker) {
-	auctionId := eventx.AuctionId.Uint64()
+	auctionId := eventx.AuctionId.String()
 	logx.AddKV("  auctionId", auctionId)
 
 	auction, err := database.QueryActionInfoByAuctionId(auctionId)
@@ -138,7 +138,7 @@ func handleEventAuctionCancel(log *types.Log, event *abi.Event, eventx *EventAuc
 
 // 结束。
 func handleEventAuctionEnd(log *types.Log, event *abi.Event, eventx *EventAuctionEnd, logx *util.LogMaker) {
-	auctionId := eventx.AuctionId.Uint64()
+	auctionId := eventx.AuctionId.String()
 	logx.AddKV("  auctionId", auctionId)
 
 	err := database.UpdateAuction(auctionId, map[string]any{

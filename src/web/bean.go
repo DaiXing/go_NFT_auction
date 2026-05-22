@@ -30,26 +30,27 @@ type GetTokenListReq struct {
 	Seller string `json:"seller" ` // 卖家。
 }
 type TokenInfo struct {
-	NftContract string  `json:"nftContract"  ` // NFT合约地址
-	TokenId     uint64  `json:"tokenId"  `     // token
-	TokenUri    string  `json:"tokenUri"  `    // token uri
-	TokenType   string  `json:"tokenType"`
-	FloorPrice  float32 `json:"floorPrice"` // 地板价
-	Description string  `json:"description"`
-	Image1      string  `json:"image1"`
-	Image2      string  `json:"image2"`
-	Image3      string  `json:"image3"`
+	NftContract string                  `json:"nftContract"  ` // NFT合约地址
+	TokenId     string                  `json:"tokenId"  `     // token
+	TokenUri    string                  `json:"tokenUri"  `    // token uri
+	TokenType   string                  `json:"tokenType"`
+	FloorPrice  float32                 `json:"floorPrice"` // 地板价
+	Description string                  `json:"description"`
+	Image1      string                  `json:"image1"`
+	Image2      string                  `json:"image2"`
+	Image3      string                  `json:"image3"`
+	AuctionInfo *database.AuctionInfoPo `json:"auctionInfo"` // 拍卖。
 }
 type GetTokenListResp struct {
 	BaseResp
-	TokenList []TokenInfo `json:"tokenList"` // token列表。
+	TokenList []*TokenInfo `json:"tokenList"` // token列表。
 }
 
 // 查询 拍卖列表。
 type GetAuctionListReq struct {
 	BaseReq
 	NftContract string `json:"nftContract"  ` // NFT合约地址
-	TokenId     uint64 `json:"tokenId"  `     // token
+	TokenId     string `json:"tokenId"  `     // token
 	Seller      string `json:"seller" `       // 卖家
 	AuctionId   uint64 `json:"auctionId" `    // 拍卖ID。唯一。
 }
