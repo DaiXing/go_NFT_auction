@@ -8,6 +8,8 @@ datasource:
 eth: 
   rpcUrl: "http://127.0.0.1:8545"
   auctionContractAddress: "0x1234567890abcdef1234567890abcdef12345678"
+  alchemyKey: umAjVzLoWaqMIxZh9OFn2
+  alchemyNet: eth-mainnet
 
 # web配置
 web:  

@@ -41,6 +41,8 @@ type DbParamInfo struct {
 type EthParamInfo struct {
 	RpcUrl                 string `mapstructure:"rpcUrl"`
 	AuctionContractAddress string `mapstructure:"auctionContractAddress"`
+	AlchemyKey             string `mapstructure:"alchemyKey"`
+	AlchemyNet             string `mapstructure:"alchemyNet"`
 }
 
 // web配置
