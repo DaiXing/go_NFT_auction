@@ -1,7 +1,7 @@
 
 # 数据源
 datasource: 
-  mysqlUrl: "user:password@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
+  mysqlUrl: "auction:123456@tcp(127.0.0.1:3306)/nft_auction?charset=utf8mb4&parseTime=True&loc=Local"
   needDropTables: true 
 
 # 以太坊相关配置
