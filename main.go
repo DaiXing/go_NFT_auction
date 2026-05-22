@@ -12,6 +12,7 @@ func main() {
 	database.InitTables() // 初始化表
 
 	// 以太坊
+	eth.InitAlchemy()      // NFT查询
 	eth.InitClient()       // 客户端连接
 	eth.InitContract()     // 合约
 	eth.ScanHistoryEvent() // 扫描历史事件
