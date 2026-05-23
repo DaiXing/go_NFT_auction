@@ -3,6 +3,7 @@ package main
 import (
 	"my.nft.auction/src/database"
 	"my.nft.auction/src/eth"
+	"my.nft.auction/src/mock"
 	"my.nft.auction/src/util"
 	"my.nft.auction/src/web"
 )
@@ -22,6 +23,9 @@ func main() {
 	eth.InitContract() // 合约
 	// eth.ScanHistoryEvent() // 扫描历史事件
 	eth.SubscribeEvent() // 订阅事件
+
+	// mock测试
+	mock.InitMock()
 
 	// web
 	web.InitWeb() // web 服务器
