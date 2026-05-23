@@ -34,5 +34,9 @@ func InitMock() {
 
 	util.Logger.Info("mock ", "userJack", util.ToJson(userJack))
 	util.Logger.Info("mock ", "userTom", util.ToJson(userTom))
+
+	// 事件。
+	NftSubscribeEvent()
+
 	util.Logger.Info("mock 完成初始化")
 }

@@ -11,7 +11,7 @@ import (
 )
 
 // 订阅事件。
-func SubscribeEvent() {
+func NftSubscribeEvent() {
 	ctx, cancel := util.NewContext(3)
 	defer cancel()
 
@@ -31,7 +31,7 @@ func SubscribeEvent() {
 
 				sub.Unsubscribe() // 取消订阅。
 
-				SubscribeEvent() // 重新订阅。
+				NftSubscribeEvent() // 重新订阅。
 
 				return
 			case logE := <-chanEvent: // 解析日志
