@@ -41,7 +41,8 @@ func (tt *LogMaker) LogString() string {
 		buf.WriteString("\n")
 	}
 	str := buf.String()
-	Logger.Info(str)
+	// Logger.Info(str)
+	fmt.Println(str)
 	return str
 }
 

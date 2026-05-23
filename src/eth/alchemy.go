@@ -44,7 +44,7 @@ type AxToken struct {
 	TokenType   string       `json:"tokenType"`
 	Description string       `json:"description"`
 	TokenUri    string       `json:"tokenUri"`
-	Balance     int32        `json:"balance"`
+	Balance     string       `json:"balance"`
 	Contract    AxContract   `json:"contract"`
 	Image       AxTokenImage `json:"image"`
 }
