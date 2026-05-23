@@ -6,7 +6,6 @@ import (
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"my.nft.auction/src/eth"
 	"my.nft.auction/src/util"
 )
 
@@ -61,9 +60,9 @@ func NewTxData(from common.Address, toContract common.Address, funcData []byte) 
 }
 
 // 触发交易。
-func CallTx(contract common.Address, funcData []byte, caller eth.UserInfo) {
+func CallTx(contract common.Address, funcData []byte, caller *UserInfo) {
 	// 交易。
-	txData := eth.NewTxData(caller.Addr, contract, funcData)
+	txData := NewTxData(caller.Addr, contract, funcData)
 
 	// 签名
 	signer := types.NewLondonSigner(txData.ChainID)
@@ -74,6 +73,6 @@ func CallTx(contract common.Address, funcData []byte, caller eth.UserInfo) {
 	defer cancel()
 
 	// 发送交易。
-	err5 := eth.EthClient.SendTransaction(ctx, tx)
+	err5 := EthClient.SendTransaction(ctx, tx)
 	util.CheckError(err5)
 }

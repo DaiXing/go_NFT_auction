@@ -9,7 +9,6 @@ import (
 	"my.nft.auction/src/eth"
 	"my.nft.auction/src/mock"
 	"my.nft.auction/src/util"
-	"my.nft.auction/src/web"
 )
 
 // 健康检测。
@@ -167,7 +166,7 @@ func pathMockNftMint(ctx *gin.Context) {
 	caller := mock.UserJack
 	mock.NftMint(caller)
 
-	ctx.JSON(http.StatusOK, web.BaseResp{
+	ctx.JSON(http.StatusOK, BaseResp{
 		Message: "OK",
 	})
 }

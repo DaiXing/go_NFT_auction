@@ -7,10 +7,10 @@ import (
 	"my.nft.auction/src/web"
 )
 
-func MockNftMint(tt *testing.T) {
+func TestMockNftMint(tt *testing.T) {
 	tt.Log("测试： mock NFT 发币")
 
-	resp, err := util.HttpGetJson[web.BaseResp](URL_MOCK_NFT_MINT)
+	resp, err := util.HttpPostJson[web.BaseReq, web.BaseResp](URL_MOCK_NFT_MINT, nil)
 	if err != nil {
 		tt.Fatal("URL_MOCK_NFT_MINT error", err)
 	}
