@@ -21,7 +21,7 @@ func InitContract() {
 	addrHex := util.Params.Eth.AuctionContractAddress
 	contractAddr = common.HexToAddress(addrHex)
 
-	filename := "contract_abi.json"
+	filename := "ABI_auction.json"
 	file, err := os.Open(filename)
 	util.CheckError(err)
 	defer file.Close()
@@ -38,5 +38,5 @@ func InitContract() {
 	util.CheckError(err3)
 	abiObj = &abix
 
-	util.Logger.Info("Eth 初始化 contract 完成")
+	util.Logger.Info("Eth 初始化 contract ABI 完成")
 }
