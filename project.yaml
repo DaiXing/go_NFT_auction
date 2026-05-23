@@ -20,8 +20,12 @@ web:
 # 测试的配置
 test: 
   # NFT合约地址
-  nftContractAddr: 0xabcdef1234567890abcdef1234567890abcdef12
-
+  nftContractAddr: 0xc0bf43a4ca27e0976195e6661b099742f10507e5
+  # 前端用户
+  jackAddr: 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720
+  jackPrivateKey: 0x2a871d0798f97d79848a013d4936a73bf4cc922c825d33c1cf7073dff6d409c6
+  tomAddr: 0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f
+  tomPrivateKey: 0xdbda1821b80551c9d65939329250298aa3472ba22feea921c0cf5d620ea67b97
 
 
 
