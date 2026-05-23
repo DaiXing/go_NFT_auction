@@ -59,3 +59,16 @@ type KeyValuePo struct {
 func (KeyValuePo) TableName() string {
 	return "key_value"
 }
+
+// 竞拍信息。 每个人的出价。
+type MockTokenPo struct {
+	BasePo
+	NftContract string `json:"nftContract" gorm:"index;size:300"` // NFT合约
+	TokenId     string `json:"tokenId" gorm:"index;size:300"`     // TokenId
+	Creator     string `json:"creator" gorm:"index;size:300"`     // 创建者
+	Owner       string `json:"owner" gorm:"index;size:300"`       // 当前所有者。
+}
+
+func (MockTokenPo) TableName() string {
+	return "mock_token"
+}

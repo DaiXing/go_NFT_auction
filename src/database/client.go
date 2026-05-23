@@ -34,12 +34,12 @@ func InitTables() {
 
 	// 丢弃表。
 	if util.Params.Datasource.NeedDropTables {
-		err := Db.Migrator().DropTable(&AuctionInfoPo{}, &AuctionBidPo{}, &KeyValuePo{})
+		err := Db.Migrator().DropTable(&AuctionInfoPo{}, &AuctionBidPo{}, &KeyValuePo{}, &MockTokenPo{})
 		util.CheckError(err)
 	}
 
 	// 自动迁移。
-	err := Db.AutoMigrate(&AuctionInfoPo{}, &AuctionBidPo{}, &KeyValuePo{})
+	err := Db.AutoMigrate(&AuctionInfoPo{}, &AuctionBidPo{}, &KeyValuePo{}, &MockTokenPo{})
 	util.CheckError(err)
 
 	// 查表。
