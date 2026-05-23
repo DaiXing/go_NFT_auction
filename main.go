@@ -3,12 +3,17 @@ package main
 import (
 	"my.nft.auction/src/database"
 	"my.nft.auction/src/eth"
+	"my.nft.auction/src/util"
 	"my.nft.auction/src/web"
 )
 
 func main() {
+	// 基础服务。
+	util.InitLogger()
+	util.InitViper()
+
 	// 数据库
-	database.InitClient() // 客户端连接
+	database.InitDb() // 客户端连接
 	database.InitTables() // 初始化表
 
 	// 以太坊

@@ -22,6 +22,7 @@ func InitViper() {
 	if err2 != nil {
 		panic(err2)
 	}
+	Logger.Info("Viper  初始化完成")
 }
 
 // 配置的参数。

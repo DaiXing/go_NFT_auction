@@ -11,9 +11,10 @@ import (
 // 连接。
 var Db *gorm.DB
 
-func InitClient() {
+func InitDb() {
 	// 连接。
 	url := util.Params.Datasource.MysqlUrl
+	util.Logger.Info("DB : ", "MysqlUrl", url)
 	db, err := gorm.Open(mysql.Open(url), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info), // 可选：设置日志级别
 	})
@@ -21,24 +22,24 @@ func InitClient() {
 
 	Db = db
 
-	util.Logger.Info("DB 初始化连接 完成 ", "url", url)
+	util.Logger.Info("DB 初始化连接 完成 ")
 }
 
 // 初始化表。
 func InitTables() {
 	// 表。
-	tableList := []any{
-		&AuctionInfoPo{}, &AuctionBidPo{}, &KeyValuePo{},
-	}
+	// tableList := []any{
+	// 	&AuctionInfoPo{}, &AuctionBidPo{}, &KeyValuePo{},
+	// }
 
 	// 丢弃表。
 	if util.Params.Datasource.NeedDropTables {
-		err := Db.Migrator().DropTable(tableList)
+		err := Db.Migrator().DropTable(&AuctionInfoPo{}, &AuctionBidPo{}, &KeyValuePo{})
 		util.CheckError(err)
 	}
 
 	// 自动迁移。
-	err := Db.AutoMigrate(tableList)
+	err := Db.AutoMigrate(&AuctionInfoPo{}, &AuctionBidPo{}, &KeyValuePo{})
 	util.CheckError(err)
 
 	// 查表。
