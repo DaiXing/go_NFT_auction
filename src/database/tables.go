@@ -29,6 +29,10 @@ type AuctionInfoPo struct {
 	State       uint8  `json:"state"`                                 // 状态。
 }
 
+func (AuctionInfoPo) TableName() string {
+	return "auction_info"
+}
+
 // 竞拍信息。 每个人的出价。
 type AuctionBidPo struct {
 	BasePo
@@ -41,9 +45,17 @@ type AuctionBidPo struct {
 	RefundTime   uint64 `json:"refundTime"`                        // 退款的时间。
 }
 
+func (AuctionBidPo) TableName() string {
+	return "auction_bid"
+}
+
 // KV 数据。
 type KeyValuePo struct {
 	BasePo
 	ParamKey   string `json:"paramKey" gorm:"uniqueIndex;size:300"` // 键。唯一。
 	ParamValue string `json:"paramValue" gorm:"size:5000"`          // 值。
+}
+
+func (KeyValuePo) TableName() string {
+	return "key_value"
 }
