@@ -6,7 +6,7 @@ import (
 )
 
 // 铸造一个token
-func NftMint(caller eth.UserInfo) {
+func NftMint(caller *eth.UserInfo) {
 	tokenUri := "http://aa.com/token.json"
 
 	// 函数+入参
