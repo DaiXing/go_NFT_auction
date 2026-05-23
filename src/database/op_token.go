@@ -9,7 +9,7 @@ func QueryToken(nftContract string, tokenId string) (*MockTokenPo, error) {
 
 func ExistToken(nftContract string, tokenId string) bool {
 	_, err := QueryToken(nftContract, tokenId)
-	return err != nil
+	return err == nil
 }
 
 // 更新DB
