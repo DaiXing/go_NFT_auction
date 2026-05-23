@@ -27,9 +27,10 @@ func InitViper() {
 
 // 配置的参数。
 type ConfigParamInfo struct {
-	Datasource DbParamInfo  `mapstructure:"datasource"`
-	Eth        EthParamInfo `mapstructure:"eth"`
-	Web        WebParamInfo `mapstructure:"web"`
+	Datasource DbParamInfo   `mapstructure:"datasource"`
+	Eth        EthParamInfo  `mapstructure:"eth"`
+	Web        WebParamInfo  `mapstructure:"web"`
+	Mock       MockParamInfo `mapstructure:"mock"`
 }
 
 // 数据库
@@ -51,4 +52,13 @@ type WebParamInfo struct {
 	JwtKey           string `mapstructure:"jwtKey"`
 	TokenValidMiutes uint64 `mapstructure:"tokenValidMiutes"`
 	Port             uint32 `mapstructure:"port"`
+}
+
+// mock测试
+type MockParamInfo struct {
+	NftContractAddr string `mapstructure:"nftContractAddr"`
+	JackAddr        string `mapstructure:"jackAddr"`
+	JackPrivateKey  string `mapstructure:"jackPrivateKey"`
+	TomAddr         string `mapstructure:"tomAddr"`
+	TomPrivateKey   string `mapstructure:"tomPrivateKey"`
 }

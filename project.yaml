@@ -17,8 +17,8 @@ web:
   tokenValidMiutes: 60 
   port: 8080
 
-# 测试的配置
-test: 
+# mock测试
+mock: 
   # NFT合约地址
   nftContractAddr: 0xc0bf43a4ca27e0976195e6661b099742f10507e5
   # 前端用户
