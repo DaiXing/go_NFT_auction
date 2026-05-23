@@ -130,6 +130,6 @@ func parseOneEvent(log *types.Log) {
 		handleEventAuctionEnd(log, event, &eventx, &logx)
 	} else {
 		// 未知事件。
-		logx.AddKV("  错误", "未知的event类型")
+		logx.AddKV("  忽略", "未知的event类型")
 	}
 }
