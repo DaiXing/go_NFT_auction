@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"my.nft.auction/src/bean"
 )
 
 func webReturnJson(ctx *gin.Context, status int, body any) {
@@ -15,7 +16,7 @@ func webReturnOKJson(ctx *gin.Context, body any) {
 }
 
 func webAbortError(ctx *gin.Context, status int, err string) {
-	ctx.AbortWithStatusJSON(status, &BaseResp{
+	ctx.AbortWithStatusJSON(status, &bean.BaseResp{
 		Error:       err,
 		ErrorStatus: status,
 	})

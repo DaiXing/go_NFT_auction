@@ -1,21 +1,28 @@
-package web
+package mock
 
 import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"my.nft.auction/src/bean"
 	"my.nft.auction/src/database"
-	"my.nft.auction/src/mock"
 	"my.nft.auction/src/util"
 )
+
+// 设置路径。
+func SetupMockPath(webServer *gin.Engine) {
+	group1 := webServer.Group("/mock")
+	group1.POST("/nft-mint", pathMockNftMint)
+	group1.POST("/get-token-list", pathMockGetTokenList)
+}
 
 // NFT 创建token
 func pathMockNftMint(ctx *gin.Context) {
 	// 创建token
-	caller := mock.UserJack
-	mock.TxNftMint(caller)
+	caller := UserJack
+	TxNftMint(caller)
 
-	ctx.JSON(http.StatusOK, BaseResp{
+	ctx.JSON(http.StatusOK, bean.BaseResp{
 		Message: "OK",
 	})
 }
@@ -23,7 +30,7 @@ func pathMockNftMint(ctx *gin.Context) {
 // 查询 token列表。
 func pathMockGetTokenList(ctx *gin.Context) {
 	// 参数。
-	var req GetTokenListReq
+	var req bean.GetTokenListReq
 	err := ctx.ShouldBindJSON(&req)
 	util.CheckError(err)
 
@@ -33,11 +40,11 @@ func pathMockGetTokenList(ctx *gin.Context) {
 	util.CheckError(err2)
 
 	// 返回。
-	var resp GetTokenListResp
+	var resp bean.GetTokenListResp
 
 	// token
 	for _, token := range tokenList {
-		tokenInfo := TokenInfo{
+		tokenInfo := bean.TokenInfo{
 			NftContract: token.NftContract,
 			TokenId:     token.TokenId,
 			TokenUri:    "no_uri",
@@ -56,5 +63,5 @@ func pathMockGetTokenList(ctx *gin.Context) {
 		resp.TokenList = append(resp.TokenList, &tokenInfo)
 	}
 
-	webReturnOKJson(ctx, &resp)
+	ctx.JSON(http.StatusOK, &resp)
 }

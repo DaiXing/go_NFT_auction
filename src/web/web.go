@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"my.nft.auction/src/mock"
 	"my.nft.auction/src/util"
 )
 
@@ -16,12 +17,13 @@ func InitWeb() {
 	webServer = gin.Default()
 
 	setupPath()
-	setupMockPath()
+	mock.SetupMockPath(webServer)
 
 	addr := fmt.Sprintf(":%d", util.Params.Web.Port)
 	util.Logger.Info("初始化 web ", "addr", addr)
 
-	webServer.Run(addr)
+	err2 := webServer.Run(addr)
+	util.CheckError(err2)
 }
 
 // 设置路径。
@@ -55,11 +57,4 @@ func setupPath() {
 	// 全局
 	group4 := webServer.Group("/global")
 	group4.GET("/statistic", pathStatistic)
-}
-
-// 设置路径。
-func setupMockPath() {
-	group1 := webServer.Group("/mock")
-	group1.POST("/nft-mint", pathMockNftMint)
-	group1.POST("/get-token-list", pathMockGetTokenList)
 }

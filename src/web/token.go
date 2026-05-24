@@ -4,13 +4,14 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
+	"my.nft.auction/src/bean"
 	"my.nft.auction/src/util"
 )
 
 // 生成 JWT token
 func jwtBuildToken(userId uint64, username string) string {
 	// 最重要的是，过期时间，userId
-	tokenInfo := JwtTokenInfo{
+	tokenInfo := bean.JwtTokenInfo{
 		UserId:   userId,   // 业务参数
 		Username: username, // 业务参数
 		RegisteredClaims: jwt.RegisteredClaims{
@@ -32,7 +33,7 @@ func jwtBuildToken(userId uint64, username string) string {
 }
 
 // jwt 验证token
-func jwtVerifyToken(token string) *JwtTokenInfo {
+func jwtVerifyToken(token string) *bean.JwtTokenInfo {
 	if len(token) == 0 {
 		panic("token empty")
 	}
@@ -41,14 +42,14 @@ func jwtVerifyToken(token string) *JwtTokenInfo {
 	// 返回 *Token
 	token2, err2 := jwt.ParseWithClaims(
 		token,
-		&JwtTokenInfo{},
+		&bean.JwtTokenInfo{},
 		func(t *jwt.Token) (any, error) {
 			return jwtKeys, nil
 		})
 	util.CheckError(err2)
 
 	// 转为 TokenInfo
-	tokenInfo, ok := token2.Claims.(*JwtTokenInfo)
+	tokenInfo, ok := token2.Claims.(*bean.JwtTokenInfo)
 	if !ok {
 		panic("jwt token parse error ")
 	}

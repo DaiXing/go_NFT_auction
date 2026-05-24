@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"my.nft.auction/src/bean"
 	"my.nft.auction/src/database"
 	"my.nft.auction/src/eth"
 	"my.nft.auction/src/util"
@@ -11,7 +12,7 @@ import (
 
 // 健康检测。
 func pathHealth(ctx *gin.Context) {
-	resp := BaseResp{
+	resp := bean.BaseResp{
 		Message: "NFT auction : " + time.Now().Format(time.DateTime),
 	}
 	webReturnOKJson(ctx, resp)
@@ -20,7 +21,7 @@ func pathHealth(ctx *gin.Context) {
 // 查询 token列表。
 func pathGetTokenList(ctx *gin.Context) {
 	// 参数。
-	var req GetTokenListReq
+	var req bean.GetTokenListReq
 	err := ctx.ShouldBindJSON(&req)
 	util.CheckError(err)
 
@@ -29,11 +30,11 @@ func pathGetTokenList(ctx *gin.Context) {
 	util.CheckError(err2)
 
 	// 返回。
-	var resp GetTokenListResp
+	var resp bean.GetTokenListResp
 
 	// token
 	for _, token := range nftResp.OwnedNfts {
-		tokenInfo := TokenInfo{
+		tokenInfo := bean.TokenInfo{
 			NftContract: token.Contract.Address,
 			TokenId:     token.TokenId,
 			TokenUri:    token.TokenUri,
@@ -58,7 +59,7 @@ func pathGetTokenList(ctx *gin.Context) {
 // 查询 拍卖列表。
 func pathGetAuctionList(ctx *gin.Context) {
 	// 参数。
-	var req GetAuctionListReq
+	var req bean.GetAuctionListReq
 	err := ctx.ShouldBindJSON(&req)
 	util.CheckError(err)
 
@@ -93,7 +94,7 @@ func pathGetAuctionList(ctx *gin.Context) {
 	util.CheckError(err3)
 
 	// 返回。
-	var resp GetAuctionListResp
+	var resp bean.GetAuctionListResp
 	resp.TotalSize = count
 	resp.AuctionList = auctions
 	webReturnOKJson(ctx, &resp)
@@ -102,7 +103,7 @@ func pathGetAuctionList(ctx *gin.Context) {
 // 查询 出价列表。
 func pathGetBidList(ctx *gin.Context) {
 	// 参数。
-	var req GetBidListReq
+	var req bean.GetBidListReq
 	err := ctx.ShouldBindJSON(&req)
 	util.CheckError(err)
 
@@ -130,7 +131,7 @@ func pathGetBidList(ctx *gin.Context) {
 	util.CheckError(err3)
 
 	// 返回。
-	var resp GetBidListResp
+	var resp bean.GetBidListResp
 	resp.TotalSize = count
 	resp.BidList = bids
 	webReturnOKJson(ctx, &resp)
@@ -138,7 +139,7 @@ func pathGetBidList(ctx *gin.Context) {
 
 // 统计。
 func pathStatistic(ctx *gin.Context) {
-	var resp StatisticResp
+	var resp bean.StatisticResp
 
 	// 拍卖总数
 	err1 := database.Db.Model(&database.AuctionInfoPo{}).Count(&resp.CountAuction).Error
