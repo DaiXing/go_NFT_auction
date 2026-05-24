@@ -54,6 +54,12 @@ func parseOneEvent(log *types.Log) {
 		logx.AddKV(" 异常", err)
 	}()
 
+	// 关联。
+	contractAddr := log.Address
+	txHash := log.TxHash.Hex()
+	logx.AddKV("  log所属合约", contractAddr)
+	logx.AddKV("  log所属交易", txHash)
+
 	// 找出具体的事件定义
 	topic0 := log.Topics[0]
 	logx.AddKV("  topic0", topic0)
