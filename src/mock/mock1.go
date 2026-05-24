@@ -38,5 +38,8 @@ func InitMock() {
 	// 事件。
 	NftSubscribeEvent()
 
+	// 授权
+	InitNftApprove()
+
 	util.Logger.Info("mock 完成初始化")
 }
