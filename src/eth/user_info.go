@@ -10,6 +10,7 @@ import (
 
 // 用户信息。包含私钥、公钥、地址。
 type UserInfo struct {
+	Username      string
 	PrivateKeyHex string
 	PrivateKey    *ecdsa.PrivateKey `json:"-"`
 	PublicKey     *ecdsa.PublicKey

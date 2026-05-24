@@ -14,6 +14,8 @@ var nftContract common.Address
 // 用户
 var UserJack *eth.UserInfo
 var UserTom *eth.UserInfo
+var UserBobo *eth.UserInfo
+var UserMap = map[string]*eth.UserInfo{}
 
 func InitMock() {
 	util.Logger.Info("mock 开始初始化")
@@ -31,9 +33,17 @@ func InitMock() {
 	// 用户
 	UserJack = eth.UserFromPrivateKey(mock.JackPrivateKey)
 	UserTom = eth.UserFromPrivateKey(mock.TomPrivateKey)
+	UserBobo = eth.UserFromPrivateKey(mock.BoboPrivateKey)
+	UserJack.Username = "jack"
+	UserTom.Username = "tom"
+	UserBobo.Username = "bobo"
+	UserMap[UserJack.Username] = UserJack
+	UserMap[UserTom.Username] = UserTom
+	UserMap[UserBobo.Username] = UserBobo
 
 	util.Logger.Info("mock ", "userJack", util.ToJson(UserJack))
 	util.Logger.Info("mock ", "userTom", util.ToJson(UserTom))
+	util.Logger.Info("mock ", "userBobo", util.ToJson(UserBobo))
 
 	// 事件。
 	NftSubscribeEvent()

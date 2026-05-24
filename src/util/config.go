@@ -61,4 +61,6 @@ type MockParamInfo struct {
 	JackPrivateKey  string `mapstructure:"jackPrivateKey"`
 	TomAddr         string `mapstructure:"tomAddr"`
 	TomPrivateKey   string `mapstructure:"tomPrivateKey"`
+	BoboAddr        string `mapstructure:"boboAddr"`
+	BoboPrivateKey  string `mapstructure:"boboPrivateKey"`
 }
