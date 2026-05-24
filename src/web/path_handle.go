@@ -127,6 +127,8 @@ func pathGetBidList(ctx *gin.Context) {
 	limit := req.PageSize
 	tx.Offset(offset).Limit(limit)
 
+	tx.Order("id desc")
+
 	// 查列表。
 	var bids []database.AuctionBidPo
 	err3 := tx.Find(&bids).Error

@@ -31,3 +31,13 @@ func TestQueryToken(tt *testing.T) {
 	}
 	tt.Log(" token数量 = ", len(resp.TokenList))
 }
+
+func TestSTATISTIC(tt *testing.T) {
+	tt.Log("测试： 查询统计")
+	resp, err := util.HttpGetJson[bean.StatisticResp](URL_GLOBAL_STATISTIC)
+	if err != nil {
+		tt.Fatal("查询统计 error", err)
+	}
+
+	tt.Log("查询统计 ", util.ToJson(resp))
+}

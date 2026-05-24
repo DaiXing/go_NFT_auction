@@ -103,4 +103,15 @@ func TestMock(tt *testing.T) {
 		tt.Fatal("拍卖 出价 error", err7)
 	}
 
+	time.Sleep(time.Second * 2)
+
+	// 查询出价列表。
+	req8 := bean.GetBidListReq{
+		AuctionId: auction.AuctionId,
+	}
+	_, err8 := util.HttpPostJson[bean.GetBidListReq, bean.GetBidListResp](URL_GET_BID_LIST, &req8)
+	if err8 != nil {
+		tt.Fatal("查询出价列表 error", err8)
+	}
+
 }
