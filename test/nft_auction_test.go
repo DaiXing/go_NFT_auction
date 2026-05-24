@@ -40,15 +40,15 @@ func TestMock(tt *testing.T) {
 
 	// 用1个token。
 	tokenA := resp2.TokenList[0]
-	nowSecond := time.Now().Second()
+	nowSecond := time.Now().Unix()
 
 	// 创建 拍卖
 	req3 := bean.CreateAuctionReq{
 		NftContract: tokenA.NftContract,
 		TokenId:     tokenA.TokenId,
 		MinPrice:    int64(100),
-		BeginTime:   int64(nowSecond),
-		PeriodTime:  int64(60),
+		BeginTime:   nowSecond,
+		PeriodTime:  int64(60 * 6),
 	}
 	_, err3 := util.HttpPostJson[bean.CreateAuctionReq, bean.BaseResp](URL_MOCK_CREATE_AUCTION, &req3)
 	if err3 != nil {
