@@ -56,6 +56,14 @@ type CreateAuctionReq struct {
 	PeriodTime  int64  `json:"periodTime" `   //
 }
 
+// 出价
+type BidAuctionReq struct {
+	BaseReq
+	AuctionId  string `json:"auctionId"  ` // 拍卖ID
+	BidPrice   int64  `json:"bidPrice" `   // 出价
+	CallerName string `json:"callerName" ` // 用户
+}
+
 // 查询 拍卖列表。
 type GetAuctionListReq struct {
 	BaseReq

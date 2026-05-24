@@ -61,8 +61,14 @@ func NewTxData(from common.Address, toContract common.Address, funcData []byte) 
 
 // 触发交易。
 func CallTx(contract common.Address, funcData []byte, caller *UserInfo) {
+	CallTx2(contract, funcData, caller, nil)
+}
+
+// 触发交易。
+func CallTx2(contract common.Address, funcData []byte, caller *UserInfo, value *big.Int) {
 	// 交易。
 	txData := NewTxData(caller.Addr, contract, funcData)
+	txData.Value = value
 
 	// 签名
 	signer := types.NewLondonSigner(txData.ChainID)

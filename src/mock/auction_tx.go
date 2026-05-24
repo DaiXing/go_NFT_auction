@@ -44,3 +44,26 @@ func TxCreateAuction(caller *eth.UserInfo, req *bean.CreateAuctionReq) {
 	eth.CallTx(eth.AuctionContractAddr, funcData, caller)
 	logMaker.AddLine(" 创建 交易 ")
 }
+
+// 出价
+func TxBidAuction(caller *eth.UserInfo, req *bean.BidAuctionReq) {
+	logMaker := util.LogMaker{}
+	defer logMaker.LogString()
+	logMaker.AddLine(">> path 拍卖出价")
+	logMaker.AddKV(" caller ", caller.Username)
+
+	auctionId, _ := big.NewInt(0).SetString(req.AuctionId, 10)
+	bidPrice := big.NewInt(req.BidPrice)
+
+	logMaker.AddKV(" auctionId ", auctionId)
+	logMaker.AddKV(" bidPrice ", bidPrice)
+
+	// 函数+入参
+	funcData, err := eth.AuctionABI.Pack("bidAuction", auctionId)
+	logMaker.AddKV(" 创建 funcData error ", err)
+	util.CheckError(err)
+
+	// 交易。
+	eth.CallTx2(eth.AuctionContractAddr, funcData, caller, bidPrice)
+	logMaker.AddLine(" 创建 交易 ")
+}
