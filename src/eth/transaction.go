@@ -66,14 +66,23 @@ func CallTx(contract common.Address, funcData []byte, caller *UserInfo) {
 
 // 触发交易。
 func CallTx2(contract common.Address, funcData []byte, caller *UserInfo, value *big.Int) {
+	logMaker := util.LogMaker{}
+	defer logMaker.LogString()
+	logMaker.AddLine(">> 发送一个交易")
+	logMaker.AddKV(" caller", caller.Username)
+	logMaker.AddKV(" contract", contract)
+
 	// 交易。
 	txData := NewTxData(caller.Addr, contract, funcData)
 	txData.Value = value
+	logMaker.AddKV(" txData.Value", txData.Value)
 
 	// 签名
 	signer := types.NewLondonSigner(txData.ChainID)
 	tx, err2 := types.SignNewTx(caller.PrivateKey, signer, txData)
 	util.CheckError(err2)
+	txHash := tx.Hash().Hex()
+	logMaker.AddKV(" txHash", txHash)
 
 	ctx, cancel := util.NewContext(5)
 	defer cancel()
@@ -81,4 +90,5 @@ func CallTx2(contract common.Address, funcData []byte, caller *UserInfo, value *
 	// 发送交易。
 	err5 := EthClient.SendTransaction(ctx, tx)
 	util.CheckError(err5)
+	logMaker.AddKV(" 提示", "发生完成")
 }
