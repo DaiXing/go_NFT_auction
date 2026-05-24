@@ -1,6 +1,7 @@
 package test
 
 import (
+	"math"
 	"testing"
 	"time"
 
@@ -75,7 +76,7 @@ func TestMock(tt *testing.T) {
 	req5 := bean.BidAuctionReq{
 		AuctionId:  auction.AuctionId,
 		BidderName: "bobo",
-		BidPrice:   105,
+		BidPrice:   105 * (int64(math.Pow10(9))),
 	}
 	_, err5 := util.HttpPostJson[bean.BidAuctionReq, bean.BaseResp](URL_MOCK_BID_AUCTION, &req5)
 	if err5 != nil {
