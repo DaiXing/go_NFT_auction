@@ -1,7 +1,6 @@
 package test
 
 import (
-	"math"
 	"testing"
 	"time"
 
@@ -76,11 +75,32 @@ func TestMock(tt *testing.T) {
 	req5 := bean.BidAuctionReq{
 		AuctionId:  auction.AuctionId,
 		BidderName: "bobo",
-		BidPrice:   105 * (int64(math.Pow10(9))),
+		BidPrice:   105,
 	}
 	_, err5 := util.HttpPostJson[bean.BidAuctionReq, bean.BaseResp](URL_MOCK_BID_AUCTION, &req5)
 	if err5 != nil {
 		tt.Fatal("拍卖 出价 error", err5)
+	}
+
+	// 出价。
+	req6 := bean.BidAuctionReq{
+		AuctionId:  auction.AuctionId,
+		BidderName: "tom",
+		BidPrice:   108,
+	}
+	_, err6 := util.HttpPostJson[bean.BidAuctionReq, bean.BaseResp](URL_MOCK_BID_AUCTION, &req6)
+	if err6 != nil {
+		tt.Fatal("拍卖 出价 error", err6)
+	}
+	// 出价。
+	req7 := bean.BidAuctionReq{
+		AuctionId:  auction.AuctionId,
+		BidderName: "bobo",
+		BidPrice:   125,
+	}
+	_, err7 := util.HttpPostJson[bean.BidAuctionReq, bean.BaseResp](URL_MOCK_BID_AUCTION, &req7)
+	if err7 != nil {
+		tt.Fatal("拍卖 出价 error", err7)
 	}
 
 }

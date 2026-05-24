@@ -54,7 +54,7 @@ func TxBidAuction(caller *eth.UserInfo, req *bean.BidAuctionReq) {
 
 	auctionId, _ := big.NewInt(0).SetString(req.AuctionId, 10)
 	bidPrice := big.NewInt(0).SetUint64(uint64(req.BidPrice))
-	bidPrice.SetUint64(70000000)
+	// bidPrice.SetUint64(70000000)
 
 	logMaker.AddKV(" auctionId ", auctionId)
 	logMaker.AddKV(" bidPrice ", bidPrice)

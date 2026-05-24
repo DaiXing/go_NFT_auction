@@ -10,7 +10,8 @@ import (
 )
 
 // 交易数据。
-func NewTxData(from common.Address, toContract common.Address, funcData []byte) *types.DynamicFeeTx {
+func NewTxData(from common.Address, toContract common.Address,
+	funcData []byte, value *big.Int) *types.DynamicFeeTx {
 	ctx, cancel := util.NewContext(5)
 	defer cancel()
 
@@ -30,9 +31,10 @@ func NewTxData(from common.Address, toContract common.Address, funcData []byte) 
 
 	// gas数量
 	callMsg := ethereum.CallMsg{
-		From: from,
-		To:   &toContract, // 合约地址
-		Data: funcData,    // 合约函数
+		From:  from,        // 调用方。
+		To:    &toContract, // 合约地址
+		Data:  funcData,    // 合约函数
+		Value: value,       // 金额。 也是必须的。
 	}
 	gasLimit, err4 := EthClient.EstimateGas(ctx, callMsg)
 	util.CheckError(err4)
@@ -53,7 +55,7 @@ func NewTxData(from common.Address, toContract common.Address, funcData []byte) 
 		Gas:       gasLimit,
 		GasFeeCap: gasFee,
 		Data:      funcData,
-		Value:     nil,
+		Value:     value,
 		To:        &toContract,
 	}
 	return &txData
@@ -73,8 +75,7 @@ func CallTx2(contract common.Address, funcData []byte, caller *UserInfo, value *
 	logMaker.AddKV(" contract", contract)
 
 	// 交易。
-	txData := NewTxData(caller.Addr, contract, funcData)
-	txData.Value = value
+	txData := NewTxData(caller.Addr, contract, funcData, value)
 	logMaker.AddKV(" txData.Value", txData.Value)
 
 	// 签名
