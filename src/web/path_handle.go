@@ -1,13 +1,11 @@
 package web
 
 import (
-	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
 	"my.nft.auction/src/database"
 	"my.nft.auction/src/eth"
-	"my.nft.auction/src/mock"
 	"my.nft.auction/src/util"
 )
 
@@ -158,15 +156,4 @@ func pathStatistic(ctx *gin.Context) {
 	resp.SumTvl += sumBidPrice
 
 	webReturnOKJson(ctx, resp)
-}
-
-// NFT 创建token
-func pathMockNftMint(ctx *gin.Context) {
-	// 创建token
-	caller := mock.UserJack
-	mock.NftMint(caller)
-
-	ctx.JSON(http.StatusOK, BaseResp{
-		Message: "OK",
-	})
 }

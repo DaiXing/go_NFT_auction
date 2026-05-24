@@ -61,5 +61,5 @@ func setupPath() {
 func setupMockPath() {
 	group1 := webServer.Group("/mock")
 	group1.POST("/nft-mint", pathMockNftMint)
-
+	group1.POST("/get-token-list", pathMockGetTokenList)
 }

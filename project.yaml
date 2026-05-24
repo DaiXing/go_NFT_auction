@@ -2,7 +2,7 @@
 # 数据源
 datasource: 
   mysqlUrl: "auction:123456@tcp(127.0.0.1:3306)/nft_auction?charset=utf8mb4&parseTime=True&loc=Local"
-  needDropTables: true 
+  needDropTables: false 
 
 # 以太坊相关配置
 eth: 
