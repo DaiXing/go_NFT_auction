@@ -55,12 +55,15 @@ func TestMock(tt *testing.T) {
 		tt.Fatal("创建 拍卖 error", err3)
 	}
 
+	// 等交易执行完成。
+	time.Sleep(time.Second * 2)
+
 	// 查询最新的拍卖。
 	req4 := bean.GetAuctionListReq{
 		Seller:      jackAddr,
 		NftContract: tokenA.NftContract,
 		BaseReq: bean.BaseReq{
-			PageSize: 100,
+			PageSize: 2,
 		},
 	}
 	resp4, err4 := util.HttpPostJson[bean.GetAuctionListReq, bean.GetAuctionListResp](URL_GET_AUCTION_LIST, &req4)
@@ -82,6 +85,8 @@ func TestMock(tt *testing.T) {
 		tt.Fatal("拍卖 出价 error", err5)
 	}
 
+	time.Sleep(time.Second * 2)
+
 	// 出价。
 	req6 := bean.BidAuctionReq{
 		AuctionId:  auction.AuctionId,
@@ -92,6 +97,9 @@ func TestMock(tt *testing.T) {
 	if err6 != nil {
 		tt.Fatal("拍卖 出价 error", err6)
 	}
+
+	time.Sleep(time.Second * 2)
+
 	// 出价。
 	req7 := bean.BidAuctionReq{
 		AuctionId:  auction.AuctionId,
@@ -108,6 +116,9 @@ func TestMock(tt *testing.T) {
 	// 查询出价列表。
 	req8 := bean.GetBidListReq{
 		AuctionId: auction.AuctionId,
+		BaseReq: bean.BaseReq{
+			PageSize: 1000,
+		},
 	}
 	_, err8 := util.HttpPostJson[bean.GetBidListReq, bean.GetBidListResp](URL_GET_BID_LIST, &req8)
 	if err8 != nil {
