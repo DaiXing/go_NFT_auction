@@ -9,6 +9,7 @@ var URL_GLOBAL_STATISTIC = URL_PREFIX + "/global/statistic"
 
 var URL_MOCK_NFT_MINT = URL_PREFIX + "/mock/nft-mint"
 var URL_MOCK_GET_TOKEN_LIST = URL_PREFIX + "/mock/get-token-list"
+var URL_MOCK_CREATE_AUCTION = URL_PREFIX + "/mock/create-auction"
 
 const jackAddr = "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720"
 const tomAddr = "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f"
