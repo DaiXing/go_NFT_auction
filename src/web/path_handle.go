@@ -74,7 +74,7 @@ func pathGetAuctionList(ctx *gin.Context) {
 	if len(req.Seller) > 0 {
 		tx = tx.Where("seller = ?", req.Seller)
 	}
-	if req.AuctionId > 0 {
+	if len(req.AuctionId) > 0 {
 		tx = tx.Where("auction_id = ?", req.AuctionId)
 	}
 
@@ -107,7 +107,7 @@ func pathGetBidList(ctx *gin.Context) {
 	err := ctx.ShouldBindJSON(&req)
 	util.CheckError(err)
 
-	if req.AuctionId == 0 {
+	if len(req.AuctionId) == 0 {
 		webAbortBadReq(ctx, "AuctionId is required")
 	}
 

@@ -70,7 +70,7 @@ type GetAuctionListReq struct {
 	NftContract string `json:"nftContract"  ` // NFT合约地址
 	TokenId     string `json:"tokenId"  `     // token
 	Seller      string `json:"seller" `       // 卖家
-	AuctionId   uint64 `json:"auctionId" `    // 拍卖ID。唯一。
+	AuctionId   string `json:"auctionId" `    // 拍卖ID。唯一。
 }
 type GetAuctionListResp struct {
 	BaseResp
@@ -80,7 +80,7 @@ type GetAuctionListResp struct {
 // 查询 出价列表。
 type GetBidListReq struct {
 	BaseReq
-	AuctionId uint64 `json:"auctionId" ` // 拍卖ID。唯一。
+	AuctionId string `json:"auctionId" ` // 拍卖ID。唯一。
 }
 type GetBidListResp struct {
 	BaseResp

@@ -59,6 +59,9 @@ func TestMock(tt *testing.T) {
 	req4 := bean.GetAuctionListReq{
 		Seller:      jackAddr,
 		NftContract: tokenA.NftContract,
+		BaseReq: bean.BaseReq{
+			PageSize: 100,
+		},
 	}
 	resp4, err4 := util.HttpPostJson[bean.GetAuctionListReq, bean.GetAuctionListResp](URL_GET_AUCTION_LIST, &req4)
 	if err4 != nil {
