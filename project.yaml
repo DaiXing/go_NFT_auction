@@ -7,7 +7,7 @@ datasource:
 # 以太坊相关配置
 eth: 
   rpcUrl: "http://127.0.0.1:8545"
-  auctionContractAddress: "0x97fd63d049089cd70d9d139ccf9338c81372de68"
+  auctionContractAddress: "0x9D3DA37d36BB0B825CD319ed129c2872b893f538"
   alchemyKey: umAjVzLoWaqMIxZh9OFn2
   alchemyNet: eth-mainnet
 
