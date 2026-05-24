@@ -92,7 +92,7 @@ func pathMockBidAuction(ctx *gin.Context) {
 	util.CheckError(err)
 
 	// 创建token
-	caller := UserMap[req.CallerName]
+	caller := UserMap[req.BidderName]
 	TxBidAuction(caller, &req)
 
 	ctx.JSON(http.StatusOK, bean.BaseResp{

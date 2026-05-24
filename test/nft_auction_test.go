@@ -55,4 +55,28 @@ func TestMock(tt *testing.T) {
 		tt.Fatal("创建 拍卖 error", err3)
 	}
 
+	// 查询最新的拍卖。
+	req4 := bean.GetAuctionListReq{
+		Seller:      jackAddr,
+		NftContract: tokenA.NftContract,
+	}
+	resp4, err4 := util.HttpPostJson[bean.GetAuctionListReq, bean.GetAuctionListResp](URL_GET_AUCTION_LIST, &req4)
+	if err4 != nil {
+		tt.Fatal("查询 拍卖 error", err4)
+	}
+
+	// 一个拍卖。
+	auction := resp4.AuctionList[0]
+
+	// 出价。
+	req5 := bean.BidAuctionReq{
+		AuctionId:  auction.AuctionId,
+		BidderName: "bobo",
+		BidPrice:   105,
+	}
+	_, err5 := util.HttpPostJson[bean.BidAuctionReq, bean.BaseResp](URL_MOCK_BID_AUCTION, &req5)
+	if err5 != nil {
+		tt.Fatal("拍卖 出价 error", err5)
+	}
+
 }
