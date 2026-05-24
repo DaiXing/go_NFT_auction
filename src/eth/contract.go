@@ -11,20 +11,20 @@ import (
 )
 
 // ABI
-var abiJson string
-var abiObj *abi.ABI
+var auctionAbiJson string
+var AuctionABI *abi.ABI
 
 // 合约的地址。
-var contractAddr common.Address
+var AuctionContractAddr common.Address
 
 func InitContract() {
 	addrHex := util.Params.Eth.AuctionContractAddress
-	contractAddr = common.HexToAddress(addrHex)
+	AuctionContractAddr = common.HexToAddress(addrHex)
 
 	// 解析ABI
 	abix, err3 := AbiFromFile("ABI_auction.json")
 	util.CheckError(err3)
-	abiObj = abix
+	AuctionABI = abix
 
 	util.Logger.Info("Eth 初始化 contract ABI 完成")
 }
@@ -50,10 +50,10 @@ func AbiFromFile(filename string) (*abi.ABI, error) {
 		return nil, err2
 	}
 	logMaker.AddKV(" 文件字节数", len(bytex))
-	abiJson = string(bytex)
+	auctionAbiJson = string(bytex)
 
 	// 解析ABI
-	abix, err3 := abi.JSON(strings.NewReader(abiJson))
+	abix, err3 := abi.JSON(strings.NewReader(auctionAbiJson))
 	if err3 != nil {
 		logMaker.AddKV(" abi.JSON", err3)
 		return nil, err3

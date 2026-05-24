@@ -16,7 +16,7 @@ func SubscribeEvent() {
 
 	// 订阅日志。
 	query := ethereum.FilterQuery{
-		Addresses: []common.Address{contractAddr},
+		Addresses: []common.Address{AuctionContractAddr},
 	}
 	chanEvent := make(chan types.Log) // 队列。
 	sub, err2 := EthClientWS.SubscribeFilterLogs(ctx, query, chanEvent)
@@ -57,7 +57,7 @@ func parseOneEvent(log *types.Log) {
 	// 找出具体的事件定义
 	topic0 := log.Topics[0]
 	logx.AddKV("  topic0", topic0)
-	event, err1 := abiObj.EventByID(topic0)
+	event, err1 := AuctionABI.EventByID(topic0)
 	util.CheckError(err1)
 
 	eventName := event.Name
@@ -67,7 +67,7 @@ func parseOneEvent(log *types.Log) {
 	if "AuctionCreate" == eventName {
 		// 解析事件。
 		var eventx EventAuctionCreate
-		err2 := abiObj.UnpackIntoInterface(&eventx, eventName, log.Data)
+		err2 := AuctionABI.UnpackIntoInterface(&eventx, eventName, log.Data)
 		util.CheckError(err2)
 
 		eventx.Seller = common.BytesToAddress(log.Topics[1].Bytes())
@@ -81,7 +81,7 @@ func parseOneEvent(log *types.Log) {
 	} else if "AuctionRefund" == eventName {
 		// 解析事件。
 		var eventx EventAuctionRefund
-		err2 := abiObj.UnpackIntoInterface(&eventx, eventName, log.Data)
+		err2 := AuctionABI.UnpackIntoInterface(&eventx, eventName, log.Data)
 		util.CheckError(err2)
 
 		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())
@@ -94,7 +94,7 @@ func parseOneEvent(log *types.Log) {
 	} else if "AuctionBid" == eventName {
 		// 解析事件。
 		var eventx EventAuctionBid
-		err2 := abiObj.UnpackIntoInterface(&eventx, eventName, log.Data)
+		err2 := AuctionABI.UnpackIntoInterface(&eventx, eventName, log.Data)
 		util.CheckError(err2)
 
 		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())
@@ -107,7 +107,7 @@ func parseOneEvent(log *types.Log) {
 	} else if "AuctionCancel" == eventName {
 		// 解析事件。
 		var eventx EventAuctionCancel
-		err2 := abiObj.UnpackIntoInterface(&eventx, eventName, log.Data)
+		err2 := AuctionABI.UnpackIntoInterface(&eventx, eventName, log.Data)
 		util.CheckError(err2)
 
 		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())
@@ -119,7 +119,7 @@ func parseOneEvent(log *types.Log) {
 	} else if "AuctionEnd" == eventName {
 		// 解析事件。
 		var eventx EventAuctionEnd
-		err2 := abiObj.UnpackIntoInterface(&eventx, eventName, log.Data)
+		err2 := AuctionABI.UnpackIntoInterface(&eventx, eventName, log.Data)
 		util.CheckError(err2)
 
 		eventx.AuctionId = big.NewInt(0).SetBytes(log.Topics[1].Bytes())

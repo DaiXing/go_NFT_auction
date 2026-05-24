@@ -41,7 +41,7 @@ func ScanHistoryEvent() {
 		// 查询一次。
 		query := ethereum.FilterQuery{
 			Addresses: []common.Address{
-				contractAddr, // 合约地址
+				AuctionContractAddr, // 合约地址
 			},
 			FromBlock: big.NewInt(int64(begin)), // 区块范围
 			ToBlock:   big.NewInt(int64(end)),   // 区块范围

@@ -13,7 +13,7 @@ import (
 func pathMockNftMint(ctx *gin.Context) {
 	// 创建token
 	caller := mock.UserJack
-	mock.NftMint(caller)
+	mock.TxNftMint(caller)
 
 	ctx.JSON(http.StatusOK, BaseResp{
 		Message: "OK",
