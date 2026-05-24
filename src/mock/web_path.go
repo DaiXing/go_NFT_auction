@@ -14,6 +14,7 @@ func SetupMockPath(webServer *gin.Engine) {
 	group1 := webServer.Group("/mock")
 	group1.POST("/nft-mint", pathMockNftMint)
 	group1.POST("/get-token-list", pathMockGetTokenList)
+	group1.POST("/create-auction", pathMockTxCreateAuction)
 }
 
 // NFT 创建token
@@ -64,4 +65,20 @@ func pathMockGetTokenList(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, &resp)
+}
+
+// 创建拍卖
+func pathMockTxCreateAuction(ctx *gin.Context) {
+	// 参数。
+	var req bean.CreateAuctionReq
+	err := ctx.ShouldBindJSON(&req)
+	util.CheckError(err)
+
+	// 创建token
+	caller := UserJack
+	TxCreateAuction(caller, &req)
+
+	ctx.JSON(http.StatusOK, bean.BaseResp{
+		Message: "OK",
+	})
 }

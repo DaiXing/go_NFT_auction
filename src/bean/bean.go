@@ -46,6 +46,16 @@ type GetTokenListResp struct {
 	TokenList []*TokenInfo `json:"tokenList"` // token列表。
 }
 
+// 创建 拍卖
+type CreateAuctionReq struct {
+	BaseReq
+	NftContract string `json:"nftContract"  ` // NFT合约地址
+	TokenId     string `json:"tokenId"  `     // token
+	MinPrice    int64  `json:"minPrice" `     //
+	BeginTime   int64  `json:"beginTime" `    //
+	PeriodTime  int64  `json:"periodTime" `   //
+}
+
 // 查询 拍卖列表。
 type GetAuctionListReq struct {
 	BaseReq
