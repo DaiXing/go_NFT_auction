@@ -859,6 +859,7 @@ time=2026-05-25T23:05:44.182+08:00 level=INFO source=/Users/daixing/project/go_N
 2026/05/25 23:05:44 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:6
 [0m[33m[0.604ms] [34;1m[rows:1][0m SELECT * FROM `key_value` WHERE param_key = 'scan_block_num' AND `key_value`.`deleted_at` IS NULL LIMIT 1
 
+
 2026/05/25 23:05:44 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:26
 [0m[33m[1.134ms] [34;1m[rows:1][0m UPDATE `key_value` SET `param_value`='650' WHERE id = 1 AND `key_value`.`deleted_at` IS NULL
 >> 发送一个交易: 拍卖出价
