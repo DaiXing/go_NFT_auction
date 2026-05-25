@@ -1,0 +1,1037 @@
+time=2026-05-25T23:05:17.399+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/util/logger.go:24 msg="logger 初始化完成"
+time=2026-05-25T23:05:17.400+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/util/config.go:25 msg="Viper  初始化完成"
+time=2026-05-25T23:05:17.400+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/database/client.go:17 msg="DB : " MysqlUrl="auction:123456@tcp(127.0.0.1:3306)/nft_auction?charset=utf8mb4&parseTime=True&loc=Local"
+time=2026-05-25T23:05:17.402+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/database/client.go:25 msg="DB 初始化连接 完成 "
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.212ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[2.043ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[1.764ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = 'nft_auction' AND table_name = 'auction_info' AND table_type = 'BASE TABLE'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.253ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.730ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.474ms] [34;1m[rows:-][0m SELECT * FROM `auction_info` LIMIT 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[2.148ms] [34;1m[rows:-][0m SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'nft_auction' AND table_name = 'auction_info' ORDER BY ORDINAL_POSITION
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.151ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.592ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[1.012ms] [34;1m[rows:5][0m 
+SELECT
+	TABLE_NAME,
+	COLUMN_NAME,
+	INDEX_NAME,
+	NON_UNIQUE 
+FROM
+	information_schema.STATISTICS 
+WHERE
+	TABLE_SCHEMA = 'nft_auction' 
+	AND TABLE_NAME = 'auction_info' 
+ORDER BY
+	INDEX_NAME,
+	SEQ_IN_INDEX
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.092ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.372ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.662ms] [34;1m[rows:-][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'nft_auction' AND table_name = 'auction_info' AND constraint_name = 'uni_auction_info_auction_id'
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.087ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.378ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.975ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'auction_info' AND index_name = 'idx_auction_info_auction_id'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.133ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.514ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.934ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'auction_info' AND index_name = 'idx_auction_info_nft_contract'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.139ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.591ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.972ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'auction_info' AND index_name = 'idx_auction_info_token_id'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.133ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.457ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.781ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'auction_info' AND index_name = 'idx_auction_info_seller'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.105ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.455ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.808ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'auction_info' AND index_name = 'idx_auction_info_auction_id'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.103ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.417ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.734ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = 'nft_auction' AND table_name = 'auction_bid' AND table_type = 'BASE TABLE'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.104ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.379ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.234ms] [34;1m[rows:-][0m SELECT * FROM `auction_bid` LIMIT 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.922ms] [34;1m[rows:-][0m SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'nft_auction' AND table_name = 'auction_bid' ORDER BY ORDINAL_POSITION
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.090ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.372ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.959ms] [34;1m[rows:4][0m 
+SELECT
+	TABLE_NAME,
+	COLUMN_NAME,
+	INDEX_NAME,
+	NON_UNIQUE 
+FROM
+	information_schema.STATISTICS 
+WHERE
+	TABLE_SCHEMA = 'nft_auction' 
+	AND TABLE_NAME = 'auction_bid' 
+ORDER BY
+	INDEX_NAME,
+	SEQ_IN_INDEX
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.139ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.491ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.587ms] [34;1m[rows:-][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'nft_auction' AND table_name = 'auction_bid' AND constraint_name = 'uni_auction_bid_bid_id'
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.095ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.342ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.588ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'auction_bid' AND index_name = 'idx_auction_bid_bid_id'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.111ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.318ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.521ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'auction_bid' AND index_name = 'idx_auction_bid_auction_id'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.110ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.356ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.509ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'auction_bid' AND index_name = 'idx_auction_bid_bid_id'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.103ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.329ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.505ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'auction_bid' AND index_name = 'idx_auction_bid_bidder'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.091ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.310ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.600ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = 'nft_auction' AND table_name = 'key_value' AND table_type = 'BASE TABLE'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.112ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.318ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.272ms] [34;1m[rows:-][0m SELECT * FROM `key_value` LIMIT 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.774ms] [34;1m[rows:-][0m SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'nft_auction' AND table_name = 'key_value' ORDER BY ORDINAL_POSITION
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.146ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.427ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.582ms] [34;1m[rows:2][0m 
+SELECT
+	TABLE_NAME,
+	COLUMN_NAME,
+	INDEX_NAME,
+	NON_UNIQUE 
+FROM
+	information_schema.STATISTICS 
+WHERE
+	TABLE_SCHEMA = 'nft_auction' 
+	AND TABLE_NAME = 'key_value' 
+ORDER BY
+	INDEX_NAME,
+	SEQ_IN_INDEX
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.102ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.319ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.471ms] [34;1m[rows:-][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE constraint_schema = 'nft_auction' AND table_name = 'key_value' AND constraint_name = 'uni_key_value_param_key'
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.082ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.318ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m
+[0m[33m[0.512ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'key_value' AND index_name = 'idx_key_value_param_key'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.084ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.369ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.520ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'key_value' AND index_name = 'idx_key_value_param_key'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.097ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.324ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.544ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = 'nft_auction' AND table_name = 'mock_token' AND table_type = 'BASE TABLE'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.084ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.339ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.231ms] [34;1m[rows:-][0m SELECT * FROM `mock_token` LIMIT 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.652ms] [34;1m[rows:-][0m SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'nft_auction' AND table_name = 'mock_token' ORDER BY ORDINAL_POSITION
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.113ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.333ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.579ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'mock_token' AND index_name = 'idx_mock_token_nft_contract'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.112ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.405ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.576ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'mock_token' AND index_name = 'idx_mock_token_token_id'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.115ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.392ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.583ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'mock_token' AND index_name = 'idx_mock_token_creator'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.123ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.389ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:42
+[0m[33m[0.572ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'nft_auction' AND table_name = 'mock_token' AND index_name = 'idx_mock_token_owner'
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:46
+[0m[33m[0.117ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:46
+[0m[33m[0.398ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'nft_auction%' ORDER BY SCHEMA_NAME='nft_auction' DESC,SCHEMA_NAME limit 1
+
+2026/05/25 23:05:17 [32m/Users/daixing/project/go_NFT_auction/src/database/client.go:46
+[0m[33m[0.611ms] [34;1m[rows:5][0m SELECT TABLE_NAME FROM information_schema.tables where TABLE_SCHEMA='nft_auction'
+time=2026-05-25T23:05:17.447+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/database/client.go:49 msg="DB 初始化表 完成" tables="[auction_bid auction_info key_value mock_token test1]"
+time=2026-05-25T23:05:17.449+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/eth/client.go:32 msg="Eth 初始化 client 完成" url=http://127.0.0.1:8545 urlWs=ws://127.0.0.1:8545
+用json文件生成ABI
+ filename = ABI_auction.json
+ 文件字节数 = 14031
+
+time=2026-05-25T23:05:17.450+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/eth/contract.go:29 msg="Eth 初始化 contract ABI 完成"
+time=2026-05-25T23:05:17.451+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/mock/mock1.go:21 msg="mock 开始初始化"
+用json文件生成ABI
+ filename = ABI_my_NFT.json
+ 文件字节数 = 11820
+
+time=2026-05-25T23:05:17.453+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/mock/mock1.go:31 msg="mock " nftABI="&{Constructor:constructor() returns() Methods:map[approve:function approve(address to, uint256 tokenId) returns() balanceOf:function balanceOf(address owner) view returns(uint256) getApproved:function getApproved(uint256 tokenId) view returns(address) isApprovedForAll:function isApprovedForAll(address owner, address operator) view returns(bool) mintToken:function mintToken(string tokenUri) returns(uint256 tokenId_) name:function name() view returns(string) ownerOf:function ownerOf(uint256 tokenId) view returns(address) safeTransferFrom:function safeTransferFrom(address from, address to, uint256 tokenId) returns() safeTransferFrom0:function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) returns() setApprovalForAll:function setApprovalForAll(address operator, bool approved) returns() supportsInterface:function supportsInterface(bytes4 interfaceId) view returns(bool) symbol:function symbol() view returns(string) tokenURI:function tokenURI(uint256 tokenId) view returns(string) transferFrom:function transferFrom(address from, address to, uint256 tokenId) returns()] Events:map[Approval:event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId) ApprovalForAll:event ApprovalForAll(address indexed owner, address indexed operator, bool approved) BatchMetadataUpdate:event BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId) MetadataUpdate:event MetadataUpdate(uint256 _tokenId) Transfer:event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)] Errors:map[ERC721IncorrectOwner:error ERC721IncorrectOwner(address sender, uint256 tokenId, address owner) ERC721InsufficientApproval:error ERC721InsufficientApproval(address operator, uint256 tokenId) ERC721InvalidApprover:error ERC721InvalidApprover(address approver) ERC721InvalidOperator:error ERC721InvalidOperator(address operator) ERC721InvalidOwner:error ERC721InvalidOwner(address owner) ERC721InvalidReceiver:error ERC721InvalidReceiver(address receiver) ERC721InvalidSender:error ERC721InvalidSender(address sender) ERC721NonexistentToken:error ERC721NonexistentToken(uint256 tokenId)] Fallback: Receive:}"
+time=2026-05-25T23:05:17.453+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/mock/mock1.go:44 msg="mock " userJack="{\"Username\":\"jack\",\"PrivateKeyHex\":\"0x2a871d0798f97d79848a013d4936a73bf4cc922c825d33c1cf7073dff6d409c6\",\"PublicKey\":{\"Curve\":{\"P\":115792089237316195423570985008687907853269984665640564039457584007908834671663,\"N\":115792089237316195423570985008687907852837564279074904382605163141518161494337,\"B\":7,\"Gx\":55066263022277343669578718895168534326250603453777594175500187360389116729240,\"Gy\":32670510020758816978083085130507043184471273380659243275938904335757337482424,\"BitSize\":256},\"X\":22766304482287352038492108498316682635467176507864023761720961934350092840773,\"Y\":102471867132821125438278064284580692168211094638592322795871631999635428018876},\"AddrHex\":\"0xa0Ee7A142d267C1f36714E4a8F75612F20a79720\"}"
+time=2026-05-25T23:05:17.453+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/mock/mock1.go:45 msg="mock " userTom="{\"Username\":\"tom\",\"PrivateKeyHex\":\"0xdbda1821b80551c9d65939329250298aa3472ba22feea921c0cf5d620ea67b97\",\"PublicKey\":{\"Curve\":{\"P\":115792089237316195423570985008687907853269984665640564039457584007908834671663,\"N\":115792089237316195423570985008687907852837564279074904382605163141518161494337,\"B\":7,\"Gx\":55066263022277343669578718895168534326250603453777594175500187360389116729240,\"Gy\":32670510020758816978083085130507043184471273380659243275938904335757337482424,\"BitSize\":256},\"X\":66543876567653665138909774159810035385069186852056065510623789878513376421709,\"Y\":61730498817753519154324441453918149983034326407946031309617168984217414775831},\"AddrHex\":\"0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f\"}"
+time=2026-05-25T23:05:17.453+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/mock/mock1.go:46 msg="mock " userBobo="{\"Username\":\"bobo\",\"PrivateKeyHex\":\"0x4bbbf85ce3377467afe5d46f804f221813b2bb87f24d81f60f1fcdbf7cbf4356\",\"PublicKey\":{\"Curve\":{\"P\":115792089237316195423570985008687907853269984665640564039457584007908834671663,\"N\":115792089237316195423570985008687907852837564279074904382605163141518161494337,\"B\":7,\"Gx\":55066263022277343669578718895168534326250603453777594175500187360389116729240,\"Gy\":32670510020758816978083085130507043184471273380659243275938904335757337482424,\"BitSize\":256},\"X\":881208925381532374087046590894408860633097232577942514999546558067565766590,\"Y\":50453186896049339882401351338868871744024457194392328553508532456475102056690},\"AddrHex\":\"0x14dC79964da2C08b23698B3D3cc7Ca32193d9955\"}"
+>> 发送一个交易: NFT授权
+ caller = jack
+ contract = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+ txData.Value = <nil>
+ txHash = 0xb0856b16559b5857c42c07285a30aed2c3c1a9c1aa30ee8348566769a932b40f
+ 提示 = 发生完成
+
+time=2026-05-25T23:05:17.459+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/mock/mock1.go:54 msg="mock 完成初始化"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /health                   --> my.nft.auction/src/web.pathHealth (5 handlers)
+[GIN-debug] POST   /token/get-token-list     --> my.nft.auction/src/web.pathGetTokenList (5 handlers)
+[GIN-debug] POST   /auction/get-auction-list --> my.nft.auction/src/web.pathGetAuctionList (5 handlers)
+[GIN-debug] POST   /bid/get-bid-list         --> my.nft.auction/src/web.pathGetBidList (5 handlers)
+[GIN-debug] GET    /global/statistic         --> my.nft.auction/src/web.pathStatistic (5 handlers)
+[GIN-debug] POST   /mock/nft-mint            --> my.nft.auction/src/mock.pathMockNftMint (5 handlers)
+[GIN-debug] POST   /mock/get-token-list      --> my.nft.auction/src/mock.pathMockGetTokenList (5 handlers)
+[GIN-debug] POST   /mock/create-auction      --> my.nft.auction/src/mock.pathMockTxCreateAuction (5 handlers)
+[GIN-debug] POST   /mock/bid-auction         --> my.nft.auction/src/mock.pathMockBidAuction (5 handlers)
+[GIN-debug] POST   /mock/cancel-auction      --> my.nft.auction/src/mock.pathMockCancelAuction (5 handlers)
+[GIN-debug] POST   /mock/end-auction         --> my.nft.auction/src/mock.pathMockEndAuction (5 handlers)
+time=2026-05-25T23:05:17.459+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/web.go:23 msg="初始化 web " addr=:8080
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://github.com/gin-gonic/gin/blob/master/docs/doc.md#dont-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :8080
+>> 解析一个event 
+  log所属合约 = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  log所属交易 = 0xb0856b16559b5857c42c07285a30aed2c3c1a9c1aa30ee8348566769a932b40f
+  topic0 = 0x17307eab39ab6107e8899845ad3d59bd9653f200f220920489ca2b5937696c31
+  eventName = ApprovalForAll
+  忽略 = 未知的event类型
+ 异常 = <nil>
+
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/web/path_handle.go:83
+[0m[33m[1.471ms] [34;1m[rows:1][0m SELECT count(*) FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND `auction_info`.`deleted_at` IS NULL
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/web/path_handle.go:95
+[0m[33m[0.736ms] [34;1m[rows:25][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND `auction_info`.`deleted_at` IS NULL ORDER BY id desc LIMIT 200
+time=2026-05-25T23:05:40.073+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/auction/get-auction-list costMillis=3
+[GIN] 2026/05/25 - 23:05:40 | 200 |   3.35ms |       127.0.0.1 | POST     "/auction/get-auction-list"
+>> 发送一个交易: 结束拍卖
+ caller = jack
+ contract = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+ txData.Value = <nil>
+ txHash = 0xe814a8f017878fa74ed48b6bb2b90d9bfcb37d3380e728c4e414cc87a9a5e4f8
+ 提示 = 发生完成
+
+>> path 结束拍卖
+ caller  = jack
+ auctionId  = 26
+ 创建 funcData error  = <nil>
+ 创建 交易 
+
+time=2026-05-25T23:05:40.079+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/mock/end-auction costMillis=5
+[GIN] 2026/05/25 - 23:05:40 | 200 |    5.6ms |       127.0.0.1 | POST     "/mock/end-auction?auctionId=26"
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_token.go:6
+[0m[33m[3.206ms] [34;1m[rows:1][0m SELECT * FROM `mock_token` WHERE nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '107' AND `mock_token`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:6
+[0m[33m[4.948ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE auction_id = '26' AND `auction_info`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_token.go:22
+[0m[33m[4.792ms] [34;1m[rows:1][0m UPDATE `mock_token` SET `owner`='0x14dC79964da2C08b23698B3D3cc7Ca32193d9955' WHERE id = 5 AND `mock_token`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  log所属交易 = 0xe814a8f017878fa74ed48b6bb2b90d9bfcb37d3380e728c4e414cc87a9a5e4f8
+  topic0 = 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+  eventName = Transfer
+  event明细 = {"NftContract":"0xc0bf43a4ca27e0976195e6661b099742f10507e5","From":"0x9d3da37d36bb0b825cd319ed129c2872b893f538","To":"0x14dc79964da2c08b23698b3d3cc7ca32193d9955","TokenId":107}
+  nftContract = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  from = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  to = 0x14dC79964da2C08b23698B3D3cc7Ca32193d9955
+  tokenId = 107
+  类型 = 转移token
+  更新表 成功
+ 异常 = <nil>
+
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:37
+[0m[33m[3.314ms] [34;1m[rows:1][0m UPDATE `auction_info` SET `state`=1 WHERE id = 25 AND `auction_info`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  log所属交易 = 0xe814a8f017878fa74ed48b6bb2b90d9bfcb37d3380e728c4e414cc87a9a5e4f8
+  topic0 = 0x6b1a9b6f088810e135f777ab9bf8e8ca1c6923bd0a75881ed0375cc8ab46efaf
+  eventName = AuctionEnd
+  event明细 = {"AuctionId":26,"State":1}
+  auctionId = 26
+ 提示 = 更新 auction表成功。
+ 异常 = <nil>
+
+>> 发送一个交易: 结束拍卖
+ caller = jack
+ contract = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+ txData.Value = <nil>
+ txHash = 0xf53e7a7621b61d5a4c37c52236694c1907a907ab3990e6f0fd32df950279a179
+ 提示 = 发生完成
+
+>> path 结束拍卖
+ caller  = jack
+ auctionId  = 25
+ 创建 funcData error  = <nil>
+ 创建 交易 
+
+time=2026-05-25T23:05:40.093+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/mock/end-auction costMillis=12
+[GIN] 2026/05/25 - 23:05:40 | 200 |  12.98ms |       127.0.0.1 | POST     "/mock/end-auction?auctionId=25"
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:6
+[0m[33m[0.723ms] [34;1m[rows:1][0m SELECT * FROM `key_value` WHERE param_key = 'scan_block_num' AND `key_value`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:26
+[0m[33m[1.428ms] [34;1m[rows:1][0m UPDATE `key_value` SET `param_value`='644' WHERE id = 1 AND `key_value`.`deleted_at` IS NULL
+>> 发送一个交易: 结束拍卖
+ caller = jack
+ contract = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+ txData.Value = <nil>
+ txHash = 0xc0cf7adff98071aa8f322cc86a682febcd1df491713ebeacb84553de658a4e57
+ 提示 = 发生完成
+
+>> path 结束拍卖
+ caller  = jack
+ auctionId  = 24
+ 创建 funcData error  = <nil>
+ 创建 交易 
+
+time=2026-05-25T23:05:40.101+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/mock/end-auction costMillis=7
+[GIN] 2026/05/25 - 23:05:40 | 200 |   7.31ms |       127.0.0.1 | POST     "/mock/end-auction?auctionId=24"
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_token.go:6
+[0m[33m[1.110ms] [34;1m[rows:1][0m SELECT * FROM `mock_token` WHERE nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '106' AND `mock_token`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:6
+[0m[33m[1.171ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE auction_id = '25' AND `auction_info`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_token.go:22
+[0m[33m[2.262ms] [34;1m[rows:1][0m UPDATE `mock_token` SET `owner`='0x14dC79964da2C08b23698B3D3cc7Ca32193d9955' WHERE id = 4 AND `mock_token`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  log所属交易 = 0xf53e7a7621b61d5a4c37c52236694c1907a907ab3990e6f0fd32df950279a179
+  topic0 = 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+  eventName = Transfer
+  event明细 = {"NftContract":"0xc0bf43a4ca27e0976195e6661b099742f10507e5","From":"0x9d3da37d36bb0b825cd319ed129c2872b893f538","To":"0x14dc79964da2c08b23698b3d3cc7ca32193d9955","TokenId":106}
+  nftContract = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  from = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  to = 0x14dC79964da2C08b23698B3D3cc7Ca32193d9955
+  tokenId = 106
+  类型 = 转移token
+  更新表 成功
+ 异常 = <nil>
+
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:37
+[0m[33m[2.228ms] [34;1m[rows:1][0m UPDATE `auction_info` SET `state`=1 WHERE id = 24 AND `auction_info`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  log所属交易 = 0xf53e7a7621b61d5a4c37c52236694c1907a907ab3990e6f0fd32df950279a179
+  topic0 = 0x6b1a9b6f088810e135f777ab9bf8e8ca1c6923bd0a75881ed0375cc8ab46efaf
+  eventName = AuctionEnd
+  event明细 = {"AuctionId":25,"State":1}
+  auctionId = 25
+ 提示 = 更新 auction表成功。
+ 异常 = <nil>
+
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:6
+[0m[33m[0.669ms] [34;1m[rows:1][0m SELECT * FROM `key_value` WHERE param_key = 'scan_block_num' AND `key_value`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:26
+[0m[33m[1.235ms] [34;1m[rows:1][0m UPDATE `key_value` SET `param_value`='645' WHERE id = 1 AND `key_value`.`deleted_at` IS NULL
+>> 发送一个交易: 结束拍卖
+ caller = jack
+ contract = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+ txData.Value = <nil>
+ txHash = 0x77fdd4085aeec6b1fc5230540bbb458e6472dd1aaac817c266250903d86c26cb
+ 提示 = 发生完成
+
+>> path 结束拍卖
+ caller  = jack
+ auctionId  = 23
+ 创建 funcData error  = <nil>
+ 创建 交易 
+
+time=2026-05-25T23:05:40.110+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/mock/end-auction costMillis=8
+[GIN] 2026/05/25 - 23:05:40 | 200 |   8.79ms |       127.0.0.1 | POST     "/mock/end-auction?auctionId=23"
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:6
+[0m[33m[1.258ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE auction_id = '24' AND `auction_info`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_token.go:6
+[0m[33m[1.334ms] [34;1m[rows:1][0m SELECT * FROM `mock_token` WHERE nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '105' AND `mock_token`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:37
+[0m[33m[1.967ms] [34;1m[rows:1][0m UPDATE `auction_info` SET `state`=1 WHERE id = 23 AND `auction_info`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  log所属交易 = 0xc0cf7adff98071aa8f322cc86a682febcd1df491713ebeacb84553de658a4e57
+  topic0 = 0x6b1a9b6f088810e135f777ab9bf8e8ca1c6923bd0a75881ed0375cc8ab46efaf
+  eventName = AuctionEnd
+  event明细 = {"AuctionId":24,"State":1}
+  auctionId = 24
+ 提示 = 更新 auction表成功。
+ 异常 = <nil>
+
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_token.go:22
+[0m[33m[1.994ms] [34;1m[rows:1][0m UPDATE `mock_token` SET `owner`='0x14dC79964da2C08b23698B3D3cc7Ca32193d9955' WHERE id = 3 AND `mock_token`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  log所属交易 = 0xc0cf7adff98071aa8f322cc86a682febcd1df491713ebeacb84553de658a4e57
+  topic0 = 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+  eventName = Transfer
+  event明细 = {"NftContract":"0xc0bf43a4ca27e0976195e6661b099742f10507e5","From":"0x9d3da37d36bb0b825cd319ed129c2872b893f538","To":"0x14dc79964da2c08b23698b3d3cc7ca32193d9955","TokenId":105}
+  nftContract = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  from = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  to = 0x14dC79964da2C08b23698B3D3cc7Ca32193d9955
+  tokenId = 105
+  类型 = 转移token
+  更新表 成功
+ 异常 = <nil>
+
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:6
+[0m[33m[1.228ms] [34;1m[rows:1][0m SELECT * FROM `key_value` WHERE param_key = 'scan_block_num' AND `key_value`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_token.go:6
+[0m[33m[1.054ms] [34;1m[rows:1][0m SELECT * FROM `mock_token` WHERE nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '104' AND `mock_token`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_token.go:22
+[0m[33m[2.341ms] [34;1m[rows:1][0m UPDATE `mock_token` SET `owner`='0x14dC79964da2C08b23698B3D3cc7Ca32193d9955' WHERE id = 2 AND `mock_token`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  log所属交易 = 0x77fdd4085aeec6b1fc5230540bbb458e6472dd1aaac817c266250903d86c26cb
+  topic0 = 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+  eventName = Transfer
+  event明细 = {"NftContract":"0xc0bf43a4ca27e0976195e6661b099742f10507e5","From":"0x9d3da37d36bb0b825cd319ed129c2872b893f538","To":"0x14dc79964da2c08b23698b3d3cc7ca32193d9955","TokenId":104}
+  nftContract = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  from = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  to = 0x14dC79964da2C08b23698B3D3cc7Ca32193d9955
+  tokenId = 104
+  类型 = 转移token
+  更新表 成功
+ 异常 = <nil>
+
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:26
+[0m[33m[2.848ms] [34;1m[rows:1][0m UPDATE `key_value` SET `param_value`='646' WHERE id = 1 AND `key_value`.`deleted_at` IS NULL
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:6
+[0m[33m[0.715ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE auction_id = '23' AND `auction_info`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:37
+[0m[33m[2.240ms] [34;1m[rows:1][0m UPDATE `auction_info` SET `state`=1 WHERE id = 22 AND `auction_info`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  log所属交易 = 0x77fdd4085aeec6b1fc5230540bbb458e6472dd1aaac817c266250903d86c26cb
+  topic0 = 0x6b1a9b6f088810e135f777ab9bf8e8ca1c6923bd0a75881ed0375cc8ab46efaf
+  eventName = AuctionEnd
+  event明细 = {"AuctionId":23,"State":1}
+  auctionId = 23
+ 提示 = 更新 auction表成功。
+ 异常 = <nil>
+
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:6
+[0m[33m[0.836ms] [34;1m[rows:1][0m SELECT * FROM `key_value` WHERE param_key = 'scan_block_num' AND `key_value`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:26
+[0m[33m[2.326ms] [34;1m[rows:1][0m UPDATE `key_value` SET `param_value`='647' WHERE id = 1 AND `key_value`.`deleted_at` IS NULL
+>> 发送一个交易: NFT铸造
+ caller = jack
+ contract = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+ txData.Value = <nil>
+ txHash = 0x1d41062f6dbda545a761fa6a80c11ff1c9afe7b1801b187976281a566c4c409b
+ 提示 = 发生完成
+
+NFT铸造一个token
+caller = jack
+tokenUri = http://aa.com/1779721540110.json
+
+time=2026-05-25T23:05:40.137+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/mock/nft-mint costMillis=26
+[GIN] 2026/05/25 - 23:05:40 | 200 |   26.9ms |       127.0.0.1 | POST     "/mock/nft-mint"
+
+2026/05/25 23:05:40 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_token.go:6 [35;1mrecord not found
+[0m[33m[1.142ms] [34;1m[rows:0][0m SELECT * FROM `mock_token` WHERE nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '140' AND `mock_token`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:40 [32m/Users/daixing/project/go_NFT_auction/src/mock/nft_event.go:47
+[0m[33m[1.768ms] [34;1m[rows:1][0m INSERT INTO `mock_token` (`created_at`,`updated_at`,`deleted_at`,`nft_contract`,`token_id`,`creator`,`owner`) VALUES ('2026-05-25 23:05:40.141','2026-05-25 23:05:40.141',NULL,'0xC0BF43A4Ca27e0976195E6661b099742f10507e5','140','0xa0Ee7A142d267C1f36714E4a8F75612F20a79720','0xa0Ee7A142d267C1f36714E4a8F75612F20a79720')
+>> 解析一个event 
+  log所属合约 = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  log所属交易 = 0x1d41062f6dbda545a761fa6a80c11ff1c9afe7b1801b187976281a566c4c409b
+  topic0 = 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+  eventName = Transfer
+  event明细 = {"NftContract":"0xc0bf43a4ca27e0976195e6661b099742f10507e5","From":"0x0000000000000000000000000000000000000000","To":"0xa0ee7a142d267c1f36714e4a8f75612f20a79720","TokenId":140}
+  nftContract = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  from = 0x0000000000000000000000000000000000000000
+  to = 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720
+  tokenId = 140
+  类型 = 新建token
+  插入表 成功
+ 异常 = <nil>
+
+>> 解析一个event 
+  log所属合约 = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  log所属交易 = 0x1d41062f6dbda545a761fa6a80c11ff1c9afe7b1801b187976281a566c4c409b
+  topic0 = 0xf8e1a15aba9398e019f0b49df1a4fde98ee17ae345cb5f6b5e2c27f5033e8ce7
+  eventName = MetadataUpdate
+  忽略 = 未知的event类型
+ 异常 = <nil>
+
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/mock/web_path.go:43
+[0m[33m[2.157ms] [34;1m[rows:29][0m SELECT * FROM `mock_token` WHERE owner = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND `mock_token`.`deleted_at` IS NULL
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17
+[0m[33m[0.867ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '108' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17
+[0m[33m[0.804ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '109' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17
+[0m[33m[1.031ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '110' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17
+[0m[33m[1.051ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '111' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17
+[0m[33m[0.475ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '112' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17
+[0m[33m[0.442ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '113' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17
+[0m[33m[0.539ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '114' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17
+[0m[33m[0.496ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '115' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17
+[0m[33m[0.425ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '116' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17
+[0m[33m[0.496ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '118' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17
+[0m[33m[0.449ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '119' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.400ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '123' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.653ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '124' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.676ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '125' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.406ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '126' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.489ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '127' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.364ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '128' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.427ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '129' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.358ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '130' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.359ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '131' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.388ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '132' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.376ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '133' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.356ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '134' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.390ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '135' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.360ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '136' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.353ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '137' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.367ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '138' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.459ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '139' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:17 [35;1mrecord not found
+[0m[33m[0.466ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '140' AND `auction_info`.`deleted_at` IS NULL ORDER BY id DESC LIMIT 1
+time=2026-05-25T23:05:42.160+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/mock/get-token-list costMillis=19
+[GIN] 2026/05/25 - 23:05:42 | 200 |  20.03ms |       127.0.0.1 | POST     "/mock/get-token-list"
+>> 发送一个交易: 创建拍卖
+ caller = jack
+ contract = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+ txData.Value = <nil>
+ txHash = 0xbfa9c5c15ee0ec8ed3ab57b0b817dd238c4516a941a9d5558e516f4f1861d5e9
+ 提示 = 发生完成
+
+>> path 创建拍卖
+ nftAddr  = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+ tokenId  = 108
+ minPrice  = 100
+ beginTime  = 1779721542
+ periodTime  = 360
+ 创建 funcData error  = <nil>
+ 创建 交易 
+
+time=2026-05-25T23:05:42.167+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/mock/create-auction costMillis=5
+[GIN] 2026/05/25 - 23:05:42 | 200 |   5.79ms |       127.0.0.1 | POST     "/mock/create-auction"
+
+2026/05/25 23:05:42 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:6 [35;1mrecord not found
+[0m[33m[0.915ms] [34;1m[rows:0][0m SELECT * FROM `auction_info` WHERE auction_id = '27' AND `auction_info`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_token.go:6
+[0m[33m[1.097ms] [34;1m[rows:1][0m SELECT * FROM `mock_token` WHERE nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND token_id = '108' AND `mock_token`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_token.go:22
+[0m[33m[3.725ms] [34;1m[rows:1][0m UPDATE `mock_token` SET `owner`='0x9D3DA37d36BB0B825CD319ed129c2872b893f538' WHERE id = 6 AND `mock_token`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  log所属交易 = 0xbfa9c5c15ee0ec8ed3ab57b0b817dd238c4516a941a9d5558e516f4f1861d5e9
+  topic0 = 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+  eventName = Transfer
+  event明细 = {"NftContract":"0xc0bf43a4ca27e0976195e6661b099742f10507e5","From":"0xa0ee7a142d267c1f36714e4a8f75612f20a79720","To":"0x9d3da37d36bb0b825cd319ed129c2872b893f538","TokenId":108}
+  nftContract = 0xC0BF43A4Ca27e0976195E6661b099742f10507e5
+  from = 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720
+  to = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  tokenId = 108
+  类型 = 转移token
+  更新表 成功
+ 异常 = <nil>
+
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/eth/event_handle.go:33
+[0m[33m[3.919ms] [34;1m[rows:1][0m INSERT INTO `auction_info` (`created_at`,`updated_at`,`deleted_at`,`nft_contract`,`token_id`,`seller`,`auction_id`,`min_price`,`begin_time`,`period_time`,`bidder`,`bid_price`,`state`) VALUES ('2026-05-25 23:05:42.176','2026-05-25 23:05:42.176',NULL,'0xC0BF43A4Ca27e0976195E6661b099742f10507e5','108','0xa0Ee7A142d267C1f36714E4a8F75612F20a79720','27',100,1779721542,360,'',0,0)
+>> 解析一个event 
+  log所属合约 = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  log所属交易 = 0xbfa9c5c15ee0ec8ed3ab57b0b817dd238c4516a941a9d5558e516f4f1861d5e9
+  topic0 = 0x97c56ec50f3e9517d092ab54357b320439afe2c9be66b673276d243b3a68ebcd
+  eventName = AuctionCreate
+  event明细 = {"NftContract":"0xc0bf43a4ca27e0976195e6661b099742f10507e5","Seller":"0xa0ee7a142d267c1f36714e4a8f75612f20a79720","TokenId":108,"AuctionId":27,"MinPrice":100,"BeginTime":1779721542,"EndTime":1779721902}
+  auctionId = 27
+  插入 AuctionInfoPo = {"id":0,"createdAt":"0001-01-01T00:00:00Z","updatedAt":"0001-01-01T00:00:00Z","nftContract":"0xC0BF43A4Ca27e0976195E6661b099742f10507e5","tokenId":"108","seller":"0xa0Ee7A142d267C1f36714E4a8F75612F20a79720","auctionId":"27","minPrice":100,"beginTime":1779721542,"periodTime":360,"bidder":"","bidPrice":0,"state":0}
+  插入表 成功
+ 异常 = <nil>
+
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:6
+[0m[33m[1.016ms] [34;1m[rows:1][0m SELECT * FROM `key_value` WHERE param_key = 'scan_block_num' AND `key_value`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:42 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:26
+[0m[33m[2.151ms] [34;1m[rows:1][0m UPDATE `key_value` SET `param_value`='649' WHERE id = 1 AND `key_value`.`deleted_at` IS NULL
+
+2026/05/25 23:05:44 [32m/Users/daixing/project/go_NFT_auction/src/web/path_handle.go:83
+[0m[33m[2.315ms] [34;1m[rows:1][0m SELECT count(*) FROM `auction_info` WHERE nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND `auction_info`.`deleted_at` IS NULL
+
+2026/05/25 23:05:44 [32m/Users/daixing/project/go_NFT_auction/src/web/path_handle.go:95
+[0m[33m[0.917ms] [34;1m[rows:2][0m SELECT * FROM `auction_info` WHERE nft_contract = '0xC0BF43A4Ca27e0976195E6661b099742f10507e5' AND seller = '0xa0Ee7A142d267C1f36714E4a8F75612F20a79720' AND `auction_info`.`deleted_at` IS NULL ORDER BY id desc LIMIT 2
+time=2026-05-25T23:05:44.174+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/auction/get-auction-list costMillis=4
+[GIN] 2026/05/25 - 23:05:44 | 200 |   4.57ms |       127.0.0.1 | POST     "/auction/get-auction-list"
+>> 发送一个交易: 拍卖出价
+ caller = bobo
+ contract = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+ txData.Value = 105
+ txHash = 0x85fbcfed265de5a2f07d83defe8adb64bf82086a343a0cfa10af140fb2838bfa
+ 提示 = 发生完成
+
+>> path 拍卖出价
+ caller  = bobo
+ auctionId  = 27
+ bidPrice  = 105
+ 创建 funcData error  = <nil>
+ 创建 交易 
+
+time=2026-05-25T23:05:44.182+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/mock/bid-auction costMillis=6
+[GIN] 2026/05/25 - 23:05:44 | 200 |    6.2ms |       127.0.0.1 | POST     "/mock/bid-auction"
+
+2026/05/25 23:05:44 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_bid.go:6 [35;1mrecord not found
+[0m[33m[2.933ms] [34;1m[rows:0][0m SELECT * FROM `auction_bid` WHERE bid_id = '27' AND `auction_bid`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:44 [32m/Users/daixing/project/go_NFT_auction/src/eth/event_handle.go:94
+[0m[33m[3.840ms] [34;1m[rows:1][0m INSERT INTO `auction_bid` (`created_at`,`updated_at`,`deleted_at`,`auction_id`,`bid_id`,`bidder`,`bid_price`,`bid_time`,`refund_amount`,`refund_time`) VALUES ('2026-05-25 23:05:44.189','2026-05-25 23:05:44.189',NULL,'27','27','0x14dC79964da2C08b23698B3D3cc7Ca32193d9955',105,1779721544,0,0)
+
+2026/05/25 23:05:44 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:6
+[0m[33m[1.074ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE auction_id = '27' AND `auction_info`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:44 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:37
+[0m[33m[2.854ms] [34;1m[rows:1][0m UPDATE `auction_info` SET `bid_price`=105,`bidder`='0x14dC79964da2C08b23698B3D3cc7Ca32193d9955' WHERE id = 26 AND `auction_info`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  log所属交易 = 0x85fbcfed265de5a2f07d83defe8adb64bf82086a343a0cfa10af140fb2838bfa
+  topic0 = 0x730f2240d495ac23326a84377b898e338b57feddb6bba95ae0dfa2612ded8bca
+  eventName = AuctionBid
+  event明细 = {"AuctionId":27,"Bidder":"0x14dc79964da2c08b23698b3d3cc7ca32193d9955","BidPrice":105,"BidId":27}
+  auctionId = 27
+  bidId     = 27
+ 准备写row = {"id":0,"createdAt":"0001-01-01T00:00:00Z","updatedAt":"0001-01-01T00:00:00Z","auctionId":"27","bidId":"27","bidder":"0x14dC79964da2C08b23698B3D3cc7Ca32193d9955","bidPrice":105,"bidTime":1779721544,"refundAmount":0,"refundTime":0}
+ 写bid 成功
+ 更新auction 成功
+ 异常 = <nil>
+
+
+2026/05/25 23:05:44 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:6
+[0m[33m[0.604ms] [34;1m[rows:1][0m SELECT * FROM `key_value` WHERE param_key = 'scan_block_num' AND `key_value`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:44 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:26
+[0m[33m[1.134ms] [34;1m[rows:1][0m UPDATE `key_value` SET `param_value`='650' WHERE id = 1 AND `key_value`.`deleted_at` IS NULL
+>> 发送一个交易: 拍卖出价
+ caller = tom
+ contract = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+ txData.Value = 108
+ txHash = 0xa752452258f534735a5e3e9f78248352ee8fc15bc1d2ad1bbc6f6e78e188a082
+ 提示 = 发生完成
+
+>> path 拍卖出价
+ caller  = tom
+ auctionId  = 27
+ bidPrice  = 108
+ 创建 funcData error  = <nil>
+ 创建 交易 
+
+time=2026-05-25T23:05:46.189+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/mock/bid-auction costMillis=5
+[GIN] 2026/05/25 - 23:05:46 | 200 |   5.84ms |       127.0.0.1 | POST     "/mock/bid-auction"
+
+2026/05/25 23:05:46 [32m/Users/daixing/project/go_NFT_auction/src/database/op_bid.go:6
+[0m[33m[1.921ms] [34;1m[rows:1][0m SELECT * FROM `auction_bid` WHERE bid_id = '27' AND `auction_bid`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:46 [32m/Users/daixing/project/go_NFT_auction/src/database/op_bid.go:6
+[0m[33m[0.719ms] [34;1m[rows:1][0m SELECT * FROM `auction_bid` WHERE bid_id = '27' AND `auction_bid`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:46 [32m/Users/daixing/project/go_NFT_auction/src/database/op_bid.go:26
+[0m[33m[1.930ms] [34;1m[rows:1][0m UPDATE `auction_bid` SET `refund_amount`=105,`refund_time`=1779721546 WHERE id = 26 AND `auction_bid`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  log所属交易 = 0xa752452258f534735a5e3e9f78248352ee8fc15bc1d2ad1bbc6f6e78e188a082
+  topic0 = 0x7027996f33e59a15a37dfe936c1be7dc0150040d788fff0245d7e3c47e1103d8
+  eventName = AuctionRefund
+  event明细 = {"AuctionId":27,"To":"0x14dc79964da2c08b23698b3d3cc7ca32193d9955","Amount":105,"BidId":27}
+  auctionId = 27
+  bidId     = 27
+ 更新bid 成功
+ 异常 = <nil>
+
+
+2026/05/25 23:05:46 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:6
+[0m[33m[0.694ms] [34;1m[rows:1][0m SELECT * FROM `key_value` WHERE param_key = 'scan_block_num' AND `key_value`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:46 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:26
+[0m[33m[1.820ms] [34;1m[rows:1][0m UPDATE `key_value` SET `param_value`='651' WHERE id = 1 AND `key_value`.`deleted_at` IS NULL
+
+2026/05/25 23:05:46 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_bid.go:6 [35;1mrecord not found
+[0m[33m[0.671ms] [34;1m[rows:0][0m SELECT * FROM `auction_bid` WHERE bid_id = '28' AND `auction_bid`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:46 [32m/Users/daixing/project/go_NFT_auction/src/eth/event_handle.go:94
+[0m[33m[2.203ms] [34;1m[rows:1][0m INSERT INTO `auction_bid` (`created_at`,`updated_at`,`deleted_at`,`auction_id`,`bid_id`,`bidder`,`bid_price`,`bid_time`,`refund_amount`,`refund_time`) VALUES ('2026-05-25 23:05:46.201','2026-05-25 23:05:46.201',NULL,'27','28','0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f',108,1779721546,0,0)
+
+2026/05/25 23:05:46 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:6
+[0m[33m[0.839ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE auction_id = '27' AND `auction_info`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:46 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:37
+[0m[33m[1.273ms] [34;1m[rows:1][0m UPDATE `auction_info` SET `bid_price`=108,`bidder`='0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f' WHERE id = 26 AND `auction_info`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  log所属交易 = 0xa752452258f534735a5e3e9f78248352ee8fc15bc1d2ad1bbc6f6e78e188a082
+  topic0 = 0x730f2240d495ac23326a84377b898e338b57feddb6bba95ae0dfa2612ded8bca
+  eventName = AuctionBid
+  event明细 = {"AuctionId":27,"Bidder":"0x23618e81e3f5cdf7f54c3d65f7fbc0abf5b21e8f","BidPrice":108,"BidId":28}
+  auctionId = 27
+  bidId     = 28
+ 准备写row = {"id":0,"createdAt":"0001-01-01T00:00:00Z","updatedAt":"0001-01-01T00:00:00Z","auctionId":"27","bidId":"28","bidder":"0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f","bidPrice":108,"bidTime":1779721546,"refundAmount":0,"refundTime":0}
+ 写bid 成功
+ 更新auction 成功
+ 异常 = <nil>
+
+
+2026/05/25 23:05:46 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:6
+[0m[33m[0.378ms] [34;1m[rows:1][0m SELECT * FROM `key_value` WHERE param_key = 'scan_block_num' AND `key_value`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:46 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:26
+[0m[33m[0.626ms] [34;1m[rows:0][0m UPDATE `key_value` SET `param_value`='651' WHERE id = 1 AND `key_value`.`deleted_at` IS NULL
+>> 发送一个交易: 拍卖出价
+ caller = bobo
+ contract = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+ txData.Value = 125
+ txHash = 0xec749d756d39008178ab54f1d2732ad5f57ee7e3a6672a9d0854e2703bfefff6
+ 提示 = 发生完成
+
+>> path 拍卖出价
+ caller  = bobo
+ auctionId  = 27
+ bidPrice  = 125
+ 创建 funcData error  = <nil>
+ 创建 交易 
+
+time=2026-05-25T23:05:48.197+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/mock/bid-auction costMillis=6
+[GIN] 2026/05/25 - 23:05:48 | 200 |   6.14ms |       127.0.0.1 | POST     "/mock/bid-auction"
+
+2026/05/25 23:05:48 [32m/Users/daixing/project/go_NFT_auction/src/database/op_bid.go:6
+[0m[33m[1.743ms] [34;1m[rows:1][0m SELECT * FROM `auction_bid` WHERE bid_id = '28' AND `auction_bid`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:48 [32m/Users/daixing/project/go_NFT_auction/src/database/op_bid.go:6
+[0m[33m[0.648ms] [34;1m[rows:1][0m SELECT * FROM `auction_bid` WHERE bid_id = '28' AND `auction_bid`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:48 [32m/Users/daixing/project/go_NFT_auction/src/database/op_bid.go:26
+[0m[33m[2.972ms] [34;1m[rows:1][0m UPDATE `auction_bid` SET `refund_amount`=108,`refund_time`=1779721548 WHERE id = 27 AND `auction_bid`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  log所属交易 = 0xec749d756d39008178ab54f1d2732ad5f57ee7e3a6672a9d0854e2703bfefff6
+  topic0 = 0x7027996f33e59a15a37dfe936c1be7dc0150040d788fff0245d7e3c47e1103d8
+  eventName = AuctionRefund
+  event明细 = {"AuctionId":27,"To":"0x23618e81e3f5cdf7f54c3d65f7fbc0abf5b21e8f","Amount":108,"BidId":28}
+  auctionId = 27
+  bidId     = 28
+ 更新bid 成功
+ 异常 = <nil>
+
+
+2026/05/25 23:05:48 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:6
+[0m[33m[1.142ms] [34;1m[rows:1][0m SELECT * FROM `key_value` WHERE param_key = 'scan_block_num' AND `key_value`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:48 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:26
+[0m[33m[3.474ms] [34;1m[rows:1][0m UPDATE `key_value` SET `param_value`='652' WHERE id = 1 AND `key_value`.`deleted_at` IS NULL
+
+2026/05/25 23:05:48 [31;1m/Users/daixing/project/go_NFT_auction/src/database/op_bid.go:6 [35;1mrecord not found
+[0m[33m[0.787ms] [34;1m[rows:0][0m SELECT * FROM `auction_bid` WHERE bid_id = '29' AND `auction_bid`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:48 [32m/Users/daixing/project/go_NFT_auction/src/eth/event_handle.go:94
+[0m[33m[1.466ms] [34;1m[rows:1][0m INSERT INTO `auction_bid` (`created_at`,`updated_at`,`deleted_at`,`auction_id`,`bid_id`,`bidder`,`bid_price`,`bid_time`,`refund_amount`,`refund_time`) VALUES ('2026-05-25 23:05:48.213','2026-05-25 23:05:48.213',NULL,'27','29','0x14dC79964da2C08b23698B3D3cc7Ca32193d9955',125,1779721548,0,0)
+
+2026/05/25 23:05:48 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:6
+[0m[33m[1.181ms] [34;1m[rows:1][0m SELECT * FROM `auction_info` WHERE auction_id = '27' AND `auction_info`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:48 [32m/Users/daixing/project/go_NFT_auction/src/database/op_auction.go:37
+[0m[33m[2.658ms] [34;1m[rows:1][0m UPDATE `auction_info` SET `bid_price`=125,`bidder`='0x14dC79964da2C08b23698B3D3cc7Ca32193d9955' WHERE id = 26 AND `auction_info`.`deleted_at` IS NULL
+>> 解析一个event 
+  log所属合约 = 0x9D3DA37d36BB0B825CD319ed129c2872b893f538
+  log所属交易 = 0xec749d756d39008178ab54f1d2732ad5f57ee7e3a6672a9d0854e2703bfefff6
+  topic0 = 0x730f2240d495ac23326a84377b898e338b57feddb6bba95ae0dfa2612ded8bca
+  eventName = AuctionBid
+  event明细 = {"AuctionId":27,"Bidder":"0x14dc79964da2c08b23698b3d3cc7ca32193d9955","BidPrice":125,"BidId":29}
+  auctionId = 27
+  bidId     = 29
+ 准备写row = {"id":0,"createdAt":"0001-01-01T00:00:00Z","updatedAt":"0001-01-01T00:00:00Z","auctionId":"27","bidId":"29","bidder":"0x14dC79964da2C08b23698B3D3cc7Ca32193d9955","bidPrice":125,"bidTime":1779721548,"refundAmount":0,"refundTime":0}
+ 写bid 成功
+ 更新auction 成功
+ 异常 = <nil>
+
+
+2026/05/25 23:05:48 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:6
+[0m[33m[1.040ms] [34;1m[rows:1][0m SELECT * FROM `key_value` WHERE param_key = 'scan_block_num' AND `key_value`.`deleted_at` IS NULL LIMIT 1
+
+2026/05/25 23:05:48 [32m/Users/daixing/project/go_NFT_auction/src/database/op_kv.go:26
+[0m[33m[0.888ms] [34;1m[rows:0][0m UPDATE `key_value` SET `param_value`='652' WHERE id = 1 AND `key_value`.`deleted_at` IS NULL
+
+2026/05/25 23:05:50 [32m/Users/daixing/project/go_NFT_auction/src/web/path_handle.go:124
+[0m[33m[1.967ms] [34;1m[rows:1][0m SELECT count(*) FROM `auction_bid` WHERE auction_id = '27' AND `auction_bid`.`deleted_at` IS NULL
+
+2026/05/25 23:05:50 [32m/Users/daixing/project/go_NFT_auction/src/web/path_handle.go:136
+[0m[33m[1.077ms] [34;1m[rows:3][0m SELECT * FROM `auction_bid` WHERE auction_id = '27' AND `auction_bid`.`deleted_at` IS NULL ORDER BY id desc LIMIT 1000
+time=2026-05-25T23:05:50.205+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/bid/get-bid-list costMillis=5
+[GIN] 2026/05/25 - 23:05:50 | 200 |   5.23ms |       127.0.0.1 | POST     "/bid/get-bid-list"
+time=2026-05-25T23:05:50.209+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=GET uri=/health costMillis=0
+[GIN] 2026/05/25 - 23:05:50 | 200 | 85.583µs |       127.0.0.1 | GET      "/health"
+
+>>>  http GET 
+ url    = https://eth-mainnet.g.alchemy.com/nft/v3/umAjVzLoWaqMIxZh9OFn2/getNFTsForOwner?owner=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045&pageSize=2&withMetadata=true
+ http.Get error = Get "https://eth-mainnet.g.alchemy.com/nft/v3/umAjVzLoWaqMIxZh9OFn2/getNFTsForOwner?owner=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045&pageSize=2&withMetadata=true": net/http: TLS handshake timeout
+
+time=2026-05-25T23:06:04.594+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=POST uri=/token/get-token-list costMillis=14384
+[GIN] 2026/05/25 - 23:06:04 | 500 |   14.38s |       127.0.0.1 | POST     "/token/get-token-list"
+
+2026/05/25 23:06:04 [32m/Users/daixing/project/go_NFT_auction/src/web/path_handle.go:151
+[0m[33m[1.239ms] [34;1m[rows:1][0m SELECT count(*) FROM `auction_info` WHERE `auction_info`.`deleted_at` IS NULL
+
+2026/05/25 23:06:04 [32m/Users/daixing/project/go_NFT_auction/src/web/path_handle.go:155
+[0m[33m[0.257ms] [34;1m[rows:1][0m SELECT count(*) FROM `auction_bid` WHERE `auction_bid`.`deleted_at` IS NULL
+
+2026/05/25 23:06:04 [32m/Users/daixing/project/go_NFT_auction/src/web/path_handle.go:160
+[0m[33m[0.270ms] [34;1m[rows:1][0m SELECT sum(bid_price) FROM `auction_bid` WHERE `auction_bid`.`deleted_at` IS NULL
+time=2026-05-25T23:06:04.597+08:00 level=INFO source=/Users/daixing/project/go_NFT_auction/src/web/aop.go:19 msg="HTTP REQ" method=GET uri=/global/statistic costMillis=1
+[GIN] 2026/05/25 - 23:06:04 | 200 |   1.98ms |       127.0.0.1 | GET      "/global/statistic"

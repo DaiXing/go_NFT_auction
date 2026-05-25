@@ -41,7 +41,7 @@ func TxCreateAuction(caller *eth.UserInfo, req *bean.CreateAuctionReq) {
 	util.CheckError(err)
 
 	// 交易。
-	eth.CallTx(eth.AuctionContractAddr, funcData, caller)
+	eth.CallTx("创建拍卖", eth.AuctionContractAddr, funcData, caller)
 	logMaker.AddLine(" 创建 交易 ")
 }
 
@@ -65,7 +65,7 @@ func TxBidAuction(caller *eth.UserInfo, req *bean.BidAuctionReq) {
 	util.CheckError(err)
 
 	// 交易。
-	eth.CallTx2(eth.AuctionContractAddr, funcData, caller, bidPrice)
+	eth.CallTx2("拍卖出价", eth.AuctionContractAddr, funcData, caller, bidPrice)
 	logMaker.AddLine(" 创建 交易 ")
 }
 
@@ -85,7 +85,7 @@ func TxCancelAuction(caller *eth.UserInfo, auctionIdStr string) {
 	util.CheckError(err)
 
 	// 交易。
-	eth.CallTx2(eth.AuctionContractAddr, funcData, caller, nil)
+	eth.CallTx("取消拍卖", eth.AuctionContractAddr, funcData, caller)
 	logMaker.AddLine(" 创建 交易 ")
 }
 
@@ -105,6 +105,6 @@ func TxEndAuction(caller *eth.UserInfo, auctionIdStr string) {
 	util.CheckError(err)
 
 	// 交易。
-	eth.CallTx2(eth.AuctionContractAddr, funcData, caller, nil)
+	eth.CallTx("结束拍卖", eth.AuctionContractAddr, funcData, caller)
 	logMaker.AddLine(" 创建 交易 ")
 }

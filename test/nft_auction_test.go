@@ -25,13 +25,17 @@ func TestMock(tt *testing.T) {
 	}
 
 	// 遍历
-	nowSecond := uint64(time.Now().Unix())
+	nowSecondA := uint64(time.Now().Unix())
 	for _, auction := range resp0.AuctionList {
 		url := ""
+		// 判断状态。
+		if auction.State != util.AUCTION_STATE_NORMAL {
+			continue
+		}
 		// 判断时间。
-		if nowSecond < auction.BeginTime {
+		if nowSecondA < auction.BeginTime {
 			url = URL_MOCK_CANCEL_AUCTION
-		} else if nowSecond > (auction.BeginTime + auction.PeriodTime) {
+		} else if nowSecondA > (auction.BeginTime + auction.PeriodTime) {
 			url = URL_MOCK_END_AUCTION
 		}
 		if len(url) > 0 {
@@ -42,8 +46,6 @@ func TestMock(tt *testing.T) {
 			}
 		}
 	}
-
-	return
 
 	// --------------------
 	// NFT发币

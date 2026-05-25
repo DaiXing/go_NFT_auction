@@ -6,11 +6,17 @@
 
 后台： https://github.com/DaiXing/go_NFT_auction
 
-### 配置文件  project.yaml
+### 配置文件  
+
+文件  project.yaml
 
 包含数据库、以太坊、WEB、mock的配置。
 
-### 数据库  mysql 
+### 数据库  
+
+类型  mysql 
+
+Token表  mock_token
 
 拍卖表 auction_info
 
@@ -21,6 +27,8 @@ KV表 key_value
 ### 合约  
 
 alchemy查NFT
+
+NFT合约ABI
 
 拍卖合约ABI
 
@@ -44,7 +52,7 @@ alchemy查NFT
 
 project.yaml 包含mock用的NFT合约地址、几个用户
 
-目录 mock 包含NFT、拍卖的交易逻辑，触发事件入库
+目录 mock ，包含NFT、拍卖的交易逻辑，触发事件入库，跑整个测试流程
 
 ## 运行
 

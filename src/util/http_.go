@@ -12,8 +12,8 @@ import (
 func HttpGetJson[respClass any](url string) (*respClass, error) {
 	logMaker := LogMaker{}
 	defer logMaker.LogString()
-	logMaker.AddLine("http GET ")
-	logMaker.AddKV(" url", url)
+	logMaker.AddLine("\n>>>  http GET ")
+	logMaker.AddKV(" url   ", url)
 
 	resp, err := http.Get(url)
 	if err != nil {
@@ -27,7 +27,7 @@ func HttpGetJson[respClass any](url string) (*respClass, error) {
 		return nil, err2
 	}
 
-	logMaker.AddKV(" result", string(bytex))
+	logMaker.AddKV(" result  ", string(bytex))
 
 	// json
 	var obj respClass
@@ -60,11 +60,11 @@ func HttpGetJson2[respClass any](url1 string, params map[string]string) (*respCl
 func HttpPostJson[reqClass any, respClass any](url1 string, req *reqClass) (*respClass, error) {
 	logMaker := LogMaker{}
 	defer logMaker.LogString()
-	logMaker.AddLine("http POST ")
-	logMaker.AddKV(" url", url1)
+	logMaker.AddLine("\n>>>  http POST ")
+	logMaker.AddKV(" url      ", url1)
 
 	reqJson := ToJson(req)
-	logMaker.AddKV(" reqJson", reqJson)
+	logMaker.AddKV(" reqJson  ", reqJson)
 
 	request, err1 := http.NewRequest("POST", url1, strings.NewReader(reqJson))
 	if err1 != nil {
@@ -83,7 +83,7 @@ func HttpPostJson[reqClass any, respClass any](url1 string, req *reqClass) (*res
 		return nil, err2
 	}
 
-	logMaker.AddKV(" result", string(bytex))
+	logMaker.AddKV(" result   ", string(bytex))
 
 	// json
 	var obj respClass

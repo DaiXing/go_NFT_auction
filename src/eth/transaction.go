@@ -62,15 +62,15 @@ func NewTxData(from common.Address, toContract common.Address,
 }
 
 // 触发交易。
-func CallTx(contract common.Address, funcData []byte, caller *UserInfo) {
-	CallTx2(contract, funcData, caller, nil)
+func CallTx(title string, contract common.Address, funcData []byte, caller *UserInfo) {
+	CallTx2(title, contract, funcData, caller, nil)
 }
 
 // 触发交易。
-func CallTx2(contract common.Address, funcData []byte, caller *UserInfo, value *big.Int) {
+func CallTx2(title string, contract common.Address, funcData []byte, caller *UserInfo, value *big.Int) {
 	logMaker := util.LogMaker{}
 	defer logMaker.LogString()
-	logMaker.AddLine(">> 发送一个交易")
+	logMaker.AddLine(">> 发送一个交易: " + title)
 	logMaker.AddKV(" caller", caller.Username)
 	logMaker.AddKV(" contract", contract)
 
