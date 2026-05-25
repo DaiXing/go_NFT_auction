@@ -11,6 +11,8 @@ var URL_MOCK_NFT_MINT = URL_PREFIX + "/mock/nft-mint"
 var URL_MOCK_GET_TOKEN_LIST = URL_PREFIX + "/mock/get-token-list"
 var URL_MOCK_CREATE_AUCTION = URL_PREFIX + "/mock/create-auction"
 var URL_MOCK_BID_AUCTION = URL_PREFIX + "/mock/bid-auction"
+var URL_MOCK_CANCEL_AUCTION = URL_PREFIX + "/mock/cancel-auction"
+var URL_MOCK_END_AUCTION = URL_PREFIX + "/mock/end-auction"
 
 const jackAddr = "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720"
 const tomAddr = "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f"

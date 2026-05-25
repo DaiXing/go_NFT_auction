@@ -68,3 +68,43 @@ func TxBidAuction(caller *eth.UserInfo, req *bean.BidAuctionReq) {
 	eth.CallTx2(eth.AuctionContractAddr, funcData, caller, bidPrice)
 	logMaker.AddLine(" 创建 交易 ")
 }
+
+// 取消拍卖
+func TxCancelAuction(caller *eth.UserInfo, auctionIdStr string) {
+	logMaker := util.LogMaker{}
+	defer logMaker.LogString()
+	logMaker.AddLine(">> path 取消拍卖")
+	logMaker.AddKV(" caller ", caller.Username)
+
+	auctionId, _ := big.NewInt(0).SetString(auctionIdStr, 10)
+	logMaker.AddKV(" auctionId ", auctionId)
+
+	// 函数+入参
+	funcData, err := eth.AuctionABI.Pack("cancelAuction", auctionId)
+	logMaker.AddKV(" 创建 funcData error ", err)
+	util.CheckError(err)
+
+	// 交易。
+	eth.CallTx2(eth.AuctionContractAddr, funcData, caller, nil)
+	logMaker.AddLine(" 创建 交易 ")
+}
+
+// 结束拍卖
+func TxEndAuction(caller *eth.UserInfo, auctionIdStr string) {
+	logMaker := util.LogMaker{}
+	defer logMaker.LogString()
+	logMaker.AddLine(">> path 结束拍卖")
+	logMaker.AddKV(" caller ", caller.Username)
+
+	auctionId, _ := big.NewInt(0).SetString(auctionIdStr, 10)
+	logMaker.AddKV(" auctionId ", auctionId)
+
+	// 函数+入参
+	funcData, err := eth.AuctionABI.Pack("endAuction", auctionId)
+	logMaker.AddKV(" 创建 funcData error ", err)
+	util.CheckError(err)
+
+	// 交易。
+	eth.CallTx2(eth.AuctionContractAddr, funcData, caller, nil)
+	logMaker.AddLine(" 创建 交易 ")
+}

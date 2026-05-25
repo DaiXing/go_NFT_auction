@@ -11,6 +11,41 @@ import (
 func TestMock(tt *testing.T) {
 	tt.Log("测试： mock NFT发币，拍卖，出价")
 
+	// 把全部的拍卖，都结束。
+	req0 := bean.GetAuctionListReq{
+		Seller: jackAddr,
+		// NftContract: tokenA.NftContract,
+		BaseReq: bean.BaseReq{
+			PageSize: 200,
+		},
+	}
+	resp0, err0 := util.HttpPostJson[bean.GetAuctionListReq, bean.GetAuctionListResp](URL_GET_AUCTION_LIST, &req0)
+	if err0 != nil {
+		tt.Fatal("查询 拍卖 error", err0)
+	}
+
+	// 遍历
+	nowSecond := uint64(time.Now().Unix())
+	for _, auction := range resp0.AuctionList {
+		url := ""
+		// 判断时间。
+		if nowSecond < auction.BeginTime {
+			url = URL_MOCK_CANCEL_AUCTION
+		} else if nowSecond > (auction.BeginTime + auction.PeriodTime) {
+			url = URL_MOCK_END_AUCTION
+		}
+		if len(url) > 0 {
+			url2 := url + "?auctionId=" + auction.AuctionId
+			_, err := util.HttpPostJson[bean.BaseReq, bean.BaseResp](url2, nil)
+			if err != nil {
+				tt.Fatal("取消或结束拍卖 error", err)
+			}
+		}
+	}
+
+	return
+
+	// --------------------
 	// NFT发币
 	resp, err := util.HttpPostJson[bean.BaseReq, bean.BaseResp](URL_MOCK_NFT_MINT, nil)
 	if err != nil {
@@ -38,6 +73,7 @@ func TestMock(tt *testing.T) {
 		tt.Errorf("没有查到token")
 	}
 
+	// ----------------------
 	// 用1个token。
 	tokenA := resp2.TokenList[0]
 	nowSecond := time.Now().Unix()
@@ -71,6 +107,7 @@ func TestMock(tt *testing.T) {
 		tt.Fatal("查询 拍卖 error", err4)
 	}
 
+	//-------------------
 	// 一个拍卖。
 	auction := resp4.AuctionList[0]
 
@@ -120,9 +157,12 @@ func TestMock(tt *testing.T) {
 			PageSize: 1000,
 		},
 	}
-	_, err8 := util.HttpPostJson[bean.GetBidListReq, bean.GetBidListResp](URL_GET_BID_LIST, &req8)
+	resp8, err8 := util.HttpPostJson[bean.GetBidListReq, bean.GetBidListResp](URL_GET_BID_LIST, &req8)
 	if err8 != nil {
 		tt.Fatal("查询出价列表 error", err8)
+	}
+	if len(resp8.BidList) != 3 {
+		tt.Fatal("出价的数量不对")
 	}
 
 }

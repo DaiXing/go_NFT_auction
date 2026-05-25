@@ -16,6 +16,8 @@ func SetupMockPath(webServer *gin.Engine) {
 	group1.POST("/get-token-list", pathMockGetTokenList)
 	group1.POST("/create-auction", pathMockTxCreateAuction)
 	group1.POST("/bid-auction", pathMockBidAuction)
+	group1.POST("/cancel-auction", pathMockCancelAuction)
+	group1.POST("/end-auction", pathMockEndAuction)
 }
 
 // NFT 创建token
@@ -94,6 +96,32 @@ func pathMockBidAuction(ctx *gin.Context) {
 	// 创建token
 	caller := UserMap[req.BidderName]
 	TxBidAuction(caller, &req)
+
+	ctx.JSON(http.StatusOK, bean.BaseResp{
+		Message: "OK",
+	})
+}
+
+// 取消
+func pathMockCancelAuction(ctx *gin.Context) {
+	// 参数。
+	auctionId, _ := ctx.GetQuery("auctionId")
+
+	caller := UserJack
+	TxCancelAuction(caller, auctionId)
+
+	ctx.JSON(http.StatusOK, bean.BaseResp{
+		Message: "OK",
+	})
+}
+
+// 结束
+func pathMockEndAuction(ctx *gin.Context) {
+	// 参数。
+	auctionId, _ := ctx.GetQuery("auctionId")
+
+	caller := UserJack
+	TxEndAuction(caller, auctionId)
 
 	ctx.JSON(http.StatusOK, bean.BaseResp{
 		Message: "OK",

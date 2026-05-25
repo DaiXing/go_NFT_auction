@@ -93,7 +93,9 @@ func pathGetAuctionList(ctx *gin.Context) {
 	// 查列表。
 	var auctions []database.AuctionInfoPo
 	err3 := tx.Find(&auctions).Error
-	util.CheckError(err3)
+	if err3 != nil {
+		util.Logger.Info("查询拍卖列表 ", "error", err3)
+	}
 
 	// 返回。
 	var resp bean.GetAuctionListResp
